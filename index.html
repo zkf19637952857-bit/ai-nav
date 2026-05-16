@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 导航站 — 发现最好的 AI 工具</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#111;line-height:1.6;-webkit-font-smoothing:antialiased}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #eee}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 24px;height:64px;justify-content:space-between}
+.logo{font-size:20px;font-weight:700;letter-spacing:-.4px}
+.logo span{color:#888;font-weight:400}
+nav{display:flex;gap:8px}
+nav a{text-decoration:none;color:#555;font-size:14px;padding:6px 14px;border-radius:8px;transition:all .2s}
+nav a:hover{background:#f5f5f5;color:#111}
+.hero{text-align:center;padding:80px 24px 48px;max-width:720px;margin:0 auto}
+.hero h1{font-size:40px;font-weight:700;letter-spacing:-.8px;margin-bottom:12px}
+.hero p{color:#666;font-size:18px}
+.search-box{margin-top:32px;position:relative;max-width:480px;margin-left:auto;margin-right:auto}
+.search-box input{width:100%;height:52px;padding:0 20px 0 48px;border:1px solid #ddd;border-radius:12px;font-size:16px;outline:none;transition:border-color .2s}
+.search-box input:focus{border-color:#111}
+.search-box .icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#999;font-size:20px}
+.ad{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:13px;font-weight:500;text-align:center;cursor:pointer;transition:all .2s;min-height:80px}
+.ad:hover{border-color:#ddd;background:#f7f7f7}
+.ad-banner{margin:24px auto;max-width:100%}
+.ad-inline{margin:32px 0}
+.ad-sidebar{margin-bottom:32px;min-height:200px}
+.layout{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 280px;gap:48px}
+.cat-section{margin-bottom:48px}
+.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.cat-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff}
+.cat-title{font-size:18px;font-weight:600}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.tool-card{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #eee;border-radius:12px;text-decoration:none;color:inherit;transition:all .2s}
+.tool-card:hover{border-color:#ccc;background:#fafafa}
+.tool-logo{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff;flex-shrink:0}
+.tool-info{min-width:0}
+.tool-name{font-size:14px;font-weight:600}
+.tool-desc{font-size:12px;color:#888;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tool-badge{display:inline-block;font-size:10px;padding:1px 8px;border-radius:4px;margin-left:6px;font-weight:500}
+.badge-free{background:#e8f5e9;color:#2e7d32}
+.badge-paid{background:#fce4ec;color:#c62828}
+.badge-freemium{background:#fff3e0;color:#e65100}
+.sidebar-title{font-size:14px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.sidebar-links{list-style:none}
+.sidebar-links li{margin-bottom:4px}
+.sidebar-links a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:#444;font-size:14px;transition:all .2s}
+.sidebar-links a:hover{background:#f5f5f5;color:#111}
+.sidebar-links a .count{float:right;color:#bbb;font-size:12px}
+footer{border-top:1px solid #eee;padding:40px 24px;text-align:center;color:#999;font-size:13px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{order:-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}.sidebar-ad-wrap{grid-column:1/-1}}
+@media(max-width:600px){.hero h1{font-size:28px}.hero p{font-size:15px}.tool-grid{grid-template-columns:1fr}nav{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">AI <span>导航站</span></div>
+    <nav>
+      <a href="#chat">对话</a>
+      <a href="#image">图像</a>
+      <a href="#video">视频</a>
+      <a href="#code">编程</a>
+      <a href="#audio">音频</a>
+      <a href="#productivity">效率</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>发现最好的 AI 工具</h1>
+  <p>精选人工智能工具，提升你的工作效率和创造力</p>
+  <div class="search-box">
+    <span class="icon">🔍</span>
+    <input type="text" id="search" placeholder="搜索工具名称或描述..." oninput="filterTools(this.value)">
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+  <div class="ad ad-banner" onclick="alert('广告位招租 - 联系：example@email.com')">
+    🚀 广告位 - 让更多用户发现你的 AI 产品
+  </div>
+</div>
+
+<div class="layout">
+  <main>
+    <section class="cat-section" data-cat="chat" id="chat">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#6366f1;">💬</div>
+        <h2 class="cat-title">对话助手</h2>
+      </div>
+      <div class="tool-grid" id="grid-chat"></div>
+    </section>
+
+    <section class="cat-section" data-cat="image" id="image">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#ec4899;">🎨</div>
+        <h2 class="cat-title">图像生成</h2>
+      </div>
+      <div class="tool-grid" id="grid-image"></div>
+      <div class="ad ad-inline" onclick="alert('广告位招租 - 联系：example@email.com')">
+        📢 内嵌广告位 - 精准触达 AI 用户群体
+      </div>
+    </section>
+
+    <section class="cat-section" data-cat="video" id="video">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#f59e0b;">🎬</div>
+        <h2 class="cat-title">视频创作</h2>
+      </div>
+      <div class="tool-grid" id="grid-video"></div>
+    </section>
+
+    <section class="cat-section" data-cat="code" id="code">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#10b981;">💻</div>
+        <h2 class="cat-title">编程开发</h2>
+      </div>
+      <div class="tool-grid" id="grid-code"></div>
+    </section>
+
+    <section class="cat-section" data-cat="audio" id="audio">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#8b5cf6;">🎵</div>
+        <h2 class="cat-title">音频处理</h2>
+      </div>
+      <div class="tool-grid" id="grid-audio"></div>
+    </section>
+
+    <section class="cat-section" data-cat="productivity" id="productivity">
+      <div class="cat-header">
+        <div class="cat-icon" style="background:#06b6d4;">⚡</div>
+        <h2 class="cat-title">效率工具</h2>
+      </div>
+      <div class="tool-grid" id="grid-productivity"></div>
+    </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-ad-wrap">
+      <div class="ad ad-sidebar" onclick="alert('广告位招租 - 联系：example@email.com')">
+        📢 侧边栏广告<br>300x250
+      </div>
+    </div>
+    <div>
+      <div class="sidebar-title">分类</div>
+      <ul class="sidebar-links" id="sidebar-links"></ul>
+    </div>
+    <div style="margin-top:24px;">
+      <div class="sidebar-title">热门标签</div>
+      <div id="tag-cloud" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>AI 导航站 - 持续收录优秀 AI 工具</p>
+  <p style="margin-top:4px;">联系：example@email.com</p>
+</footer>
+
+<script>
+const tools = [
+  {cat:'chat',name:'ChatGPT',desc:'OpenAI 推出的对话式 AI 助手',url:'https://chat.openai.com',icon:'C',color:'#10a37f',badge:'freemium'},
+  {cat:'chat',name:'Claude',desc:'Anthropic 的安全对话 AI',url:'https://claude.ai',icon:'Cl',color:'#d97706',badge:'freemium'},
+  {cat:'chat',name:'Gemini',desc:'Google 的多模态 AI 助手',url:'https://gemini.google.com',icon:'G',color:'#4285f4',badge:'free'},
+  {cat:'chat',name:'DeepSeek',desc:'国产开源大模型对话平台',url:'https://chat.deepseek.com',icon:'D',color:'#4f46e5',badge:'free'},
+  {cat:'chat',name:'Kimi',desc:'月之暗面推出的长文本 AI',url:'https://kimi.moonshot.cn',icon:'K',color:'#fb7185',badge:'free'},
+  {cat:'chat',name:'豆包',desc:'字节跳动的 AI 对话助手',url:'https://www.doubao.com',icon:'豆',color:'#2563eb',badge:'free'},
+  {cat:'chat',name:'Grok',desc:'xAI 的实时对话 AI',url:'https://grok.com',icon:'G',color:'#111',badge:'freemium'},
+  {cat:'chat',name:'Perplexity',desc:'AI 搜索引擎对话工具',url:'https://www.perplexity.ai',icon:'P',color:'#1f2937',badge:'freemium'},
+  {cat:'image',name:'Midjourney',desc:'顶级 AI 图像生成工具',url:'https://www.midjourney.com',icon:'M',color:'#000',badge:'paid'},
+  {cat:'image',name:'DALL-E 3',desc:'OpenAI 的文生图模型',url:'https://openai.com/dall-e-3',icon:'D',color:'#10a37f',badge:'paid'},
+  {cat:'image',name:'Stable Diffusion',desc:'开源图像生成模型',url:'https://stability.ai',icon:'SD',color:'#7c3aed',badge:'free'},
+  {cat:'image',name:'Leonardo AI',desc:'游戏资产 AI 生成平台',url:'https://leonardo.ai',icon:'L',color:'#0ea5e9',badge:'freemium'},
+  {cat:'image',name:'通义万相',desc:'阿里巴巴的图像生成 AI',url:'https://tongyi.aliyun.com/wanxiang',icon:'通',color:'#ff6a00',badge:'free'},
+  {cat:'image',name:'文心一格',desc:'百度的 AI 艺术创作平台',url:'https://yige.baidu.com',icon:'文',color:'#2932e1',badge:'free'},
+  {cat:'video',name:'Runway',desc:'AI 视频生成与编辑',url:'https://runwayml.com',icon:'R',color:'#000',badge:'paid'},
+  {cat:'video',name:'Pika',desc:'AI 视频创意平台',url:'https://pika.art',icon:'P',color:'#f43f5e',badge:'freemium'},
+  {cat:'video',name:'Sora',desc:'OpenAI 的高质量视频生成',url:'https://openai.com/sora',icon:'S',color:'#10a37f',badge:'paid'},
+  {cat:'video',name:'剪映',desc:'字节跳动的 AI 视频剪辑工具',url:'https://jijian.bytedance.com',icon:'剪',color:'#ff4d4d',badge:'free'},
+  {cat:'video',name:'可灵',desc:'快手 AI 视频生成',url:'https://klingai.com',icon:'可',color:'#ff6b35',badge:'free'},
+  {cat:'code',name:'GitHub Copilot',desc:'AI 代码补全助手',url:'https://github.com/features/copilot',icon:'GC',color:'#24292e',badge:'paid'},
+  {cat:'code',name:'Cursor',desc:'AI 优先的代码编辑器',url:'https://cursor.sh',icon:'C',color:'#6c47ff',badge:'freemium'},
+  {cat:'code',name:'Claude Code',desc:'终端里的 AI 编程助手',url:'https://claude.ai',icon:'CC',color:'#d97706',badge:'paid'},
+  {cat:'code',name:'Windsurf',desc:'Codeium 的 AI IDE',url:'https://codeium.com/windsurf',icon:'W',color:'#0891b2',badge:'freemium'},
+  {cat:'code',name:'Replit',desc:'AI 辅助在线编程平台',url:'https://replit.com',icon:'R',color:'#f26207',badge:'freemium'},
+  {cat:'code',name:'通义灵码',desc:'阿里出品的 AI 编码助手',url:'https://tongyi.aliyun.com/lingma',icon:'灵',color:'#ff6a00',badge:'free'},
+  {cat:'audio',name:'ElevenLabs',desc:'超逼真的 AI 语音合成',url:'https://elevenlabs.io',icon:'E',color:'#111',badge:'freemium'},
+  {cat:'audio',name:'Suno',desc:'AI 音乐生成创作',url:'https://suno.com',icon:'S',color:'#8b5cf6',badge:'freemium'},
+  {cat:'audio',name:'Udio',desc:'高质量 AI 音乐生成',url:'https://udio.com',icon:'U',color:'#ec4899',badge:'freemium'},
+  {cat:'audio',name:'Whisper',desc:'OpenAI 的开源语音识别',url:'https://openai.com/research/whisper',icon:'W',color:'#10a37f',badge:'free'},
+  {cat:'audio',name:'剪映语音',desc:'字节跳动的 AI 配音工具',url:'https://jijian.bytedance.com',icon:'音',color:'#ff4d4d',badge:'free'},
+  {cat:'productivity',name:'Notion AI',desc:'AI 增强的笔记与协作',url:'https://www.notion.so/product/ai',icon:'N',color:'#000',badge:'paid'},
+  {cat:'productivity',name:'Gamma',desc:'AI 生成演示文稿',url:'https://gamma.app',icon:'G',color:'#1a1a2e',badge:'freemium'},
+  {cat:'productivity',name:'秘塔 AI',desc:'AI 搜索与知识管理',url:'https://metaso.cn',icon:'秘',color:'#2563eb',badge:'free'},
+  {cat:'productivity',name:'Napkin',desc:'AI 思维导图与可视化',url:'https://napkin.ai',icon:'N',color:'#06b6d4',badge:'freemium'},
+  {cat:'productivity',name:'Jasper',desc:'AI 营销内容创作',url:'https://www.jasper.ai',icon:'J',color:'#2563eb',badge:'paid'},
+  {cat:'productivity',name:'Grammarly',desc:'AI 写作与语法校对',url:'https://www.grammarly.com',icon:'G',color:'#15c39a',badge:'freemium'},
+  {cat:'productivity',name:'讯飞星火',desc:'科大讯飞的 AI 助手',url:'https://xinghuo.xfyun.cn',icon:'星',color:'#2563eb',badge:'free'},
+];
+
+const catNames = {chat:'对话助手',image:'图像生成',video:'视频创作',code:'编程开发',audio:'音频处理',productivity:'效率工具'};
+const badgeLabel = {free:'免费',paid:'付费',freemium:'免费+'};
+
+function renderTools(data){
+  const g={};
+  data.forEach(t=>{(g[t.cat]??=[]).push(t)});
+  document.querySelectorAll('[id^="grid-"]').forEach(grid=>{
+    const cat=grid.id.replace('grid-','');
+    const items=g[cat]||[];
+    grid.innerHTML=items.map(t=>
+      '<a class="tool-card" href="'+t.url+'" target="_blank" rel="noopener">'+
+        '<div class="tool-logo" style="background:'+t.color+';">'+t.icon+'</div>'+
+        '<div class="tool-info">'+
+          '<div class="tool-name">'+t.name+(t.badge?'<span class="tool-badge badge-'+t.badge+'">'+badgeLabel[t.badge]+'</span>':'')+'</div>'+
+          '<div class="tool-desc">'+t.desc+'</div>'+
+        '</div>'+
+      '</a>'
+    ).join('');
+  });
+}
+
+function renderSidebar(data){
+  const cats={};
+  data.forEach(t=>{cats[t.cat]=(cats[t.cat]||0)+1});
+  document.getElementById('sidebar-links').innerHTML=
+    Object.entries(cats).map(([k,n])=>'<li><a href="#'+k+'">'+(catNames[k]||k)+' <span class="count">'+n+'</span></a></li>').join('');
+}
+
+(function(){
+  const cloud=document.getElementById('tag-cloud');
+  ['ChatGPT','Claude','开源','免费','国产','视频生成','AI编程','语音','图像','效率'].forEach(tag=>{
+    const el=document.createElement('a');
+    el.href='#';el.textContent=tag;
+    el.style.cssText='display:inline-block;padding:4px 12px;border-radius:6px;font-size:12px;background:#f5f5f5;color:#555;text-decoration:none;transition:all .2s;';
+    el.onmouseenter=function(){this.style.background='#eee';this.style.color='#111'};
+    el.onmouseleave=function(){this.style.background='#f5f5f5';this.style.color='#555'};
+    el.onclick=function(e){e.preventDefault();document.getElementById('search').value=tag;filterTools(tag)};
+    cloud.appendChild(el);
+  });
+})();
+
+function filterTools(query){
+  const q=query.trim().toLowerCase();
+  const sections=document.querySelectorAll('.cat-section');
+  if(!q){
+    sections.forEach(s=>s.style.display='');
+    document.querySelectorAll('.tool-card').forEach(c=>c.style.display='');
+    return;
+  }
+  sections.forEach(section=>{
+    const cards=section.querySelectorAll('.tool-card');
+    let any=false;
+    cards.forEach(card=>{const m=card.textContent.toLowerCase().includes(q);card.style.display=m?'':'none';if(m)any=true});
+    section.style.display=any?'':'none';
+  });
+}
+
+renderTools(tools);
+renderSidebar(tools);
+</script>
+</body>
+</html>
