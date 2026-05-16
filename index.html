@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+<title>AI 导航 — 精选 AI 工具大全</title>
+<style>
+/* ==================== Reset & Base ==================== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ==================== Scrollbar ==================== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+
+/* ==================== Header ==================== */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 100;
+  padding: 14px 0;
+}
+.header-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+}
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+.logo-badge {
+  font-size: 11px;
+  background: #eef2ff;
+  color: #4f46e5;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-left: 4px;
+}
+.search-wrapper {
+  flex: 1;
+  max-width: 480px;
+  position: relative;
+}
+.search-wrapper input {
+  width: 100%;
+  padding: 10px 16px 10px 42px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #f9fafb;
+  color: #1a1a1a;
+  outline: none;
+  transition: all .2s;
+}
+.search-wrapper input:focus {
+  border-color: #4f46e5;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+}
+.search-wrapper input::placeholder { color: #9ca3af; }
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 16px;
+  pointer-events: none;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.header-actions a {
+  font-size: 13px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: color .15s;
+}
+.header-actions a:hover { color: #4f46e5; }
+.btn-primary {
+  background: #4f46e5;
+  color: #fff !important;
+  padding: 7px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px !important;
+  transition: all .15s !important;
+}
+.btn-primary:hover { background: #4338ca !important; }
+
+/* ==================== Layout ==================== */
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 28px 24px;
+  display: flex;
+  gap: 28px;
+}
+
+/* ==================== Sidebar ==================== */
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 86px;
+  height: fit-content;
+  max-height: calc(100vh - 106px);
+  overflow-y: auto;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+  padding: 0 12px;
+}
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .12s;
+  margin-bottom: 2px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+.sidebar-item:hover { background: #f3f4f6; color: #111827; }
+.sidebar-item.active {
+  background: #eef2ff;
+  color: #4f46e5;
+  font-weight: 600;
+}
+.sidebar-item .count {
+  font-size: 11px;
+  background: #f3f4f6;
+  padding: 1px 7px;
+  border-radius: 4px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+.sidebar-item.active .count { background: #e0e7ff; color: #4f46e5; }
+.sidebar-label { display: flex; align-items: center; gap: 8px; }
+.sidebar-label .emoji { font-size: 16px; }
+
+/* ==================== Main Content ==================== */
+.main { flex: 1; min-width: 0; }
+
+/* ==================== Ad Spots ==================== */
+.ad-banner {
+  background: #f9fafb;
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 28px;
+  transition: all .2s;
+  cursor: pointer;
+}
+.ad-banner:hover { border-color: #d1d5db; background: #f3f4f6; }
+.ad-banner .ad-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #e5e7eb;
+  color: #9ca3af;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.ad-banner .ad-text {
+  font-size: 14px;
+  color: #6b7280;
+}
+.ad-banner .ad-price {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+.ad-sidebar {
+  background: #f9fafb;
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 16px;
+  transition: all .2s;
+  cursor: pointer;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ad-sidebar:hover { border-color: #d1d5db; background: #f3f4f6; }
+.ad-sidebar .ad-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #e5e7eb;
+  color: #9ca3af;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.ad-sidebar .ad-text {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ==================== Right Sidebar ==================== */
+.right-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 86px;
+  height: fit-content;
+  max-height: calc(100vh - 106px);
+  overflow-y: auto;
+}
+
+/* ==================== Section ==================== */
+.section {
+  margin-bottom: 36px;
+  scroll-margin-top: 100px;
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-header .section-count {
+  font-size: 13px;
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* ==================== Grid ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+/* ==================== Card ==================== */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all .2s;
+  position: relative;
+}
+.card:hover {
+  border-color: #c7d2fe;
+  background: #fafaff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(79,70,229,.08);
+}
+.card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  background: #f3f4f6;
+}
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+.card-desc {
+  font-size: 12px;
+  color: #6b7280;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.card-tags span {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-weight: 500;
+}
+.card-url {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card:hover .card-url { color: #4f46e5; }
+.card:hover .card-icon { background: #eef2ff; }
+.card:active { transform: translateY(0); }
+
+/* ==================== Hot Badge ==================== */
+.card .hot-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #fef2f2;
+  color: #ef4444;
+}
+.card .new-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: #f0fdf4;
+  color: #22c55e;
+}
+
+/* ==================== No Result ==================== */
+.no-result {
+  text-align: center;
+  padding: 80px 20px;
+  color: #9ca3af;
+}
+.no-result-icon { font-size: 48px; margin-bottom: 12px; }
+.no-result p { font-size: 15px; }
+
+/* ==================== Footer ==================== */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: #9ca3af;
+  font-size: 13px;
+  border-top: 1px solid #f3f4f6;
+  margin-top: 8px;
+}
+footer a { color: #6b7280; text-decoration: none; }
+footer a:hover { color: #4f46e5; }
+
+/* ==================== Responsive ==================== */
+@media (max-width: 1024px) {
+  .right-sidebar { display: none; }
+}
+@media (max-width: 820px) {
+  .sidebar { display: none; }
+  .container { padding: 20px 16px; gap: 0; }
+  .header-actions { display: none; }
+  .search-wrapper { max-width: none; }
+}
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .card { padding: 12px; }
+  .card-icon { width: 32px; height: 32px; font-size: 15px; }
+  .card-title { font-size: 13px; }
+  .card-desc { font-size: 11px; -webkit-line-clamp: 1; }
+}
+=======
+<title>AI 工具导航</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --card: #1a1a1a;
+    --card-hover: #242424;
+    --border: #2a2a2a;
+    --text: #e5e5e5;
+    --muted: #888;
+    --accent: #6c5ce7;
+    --accent-glow: rgba(108,92,231,.15);
+    --ad-bg: #131313;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+  /* Header */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(13,13,13,.85);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo span { background: var(--accent); color: #fff; padding: 2px 10px; border-radius: 6px; font-size: 14px; }
+  .search-box {
+    display: flex;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 16px;
+    width: 320px;
+    transition: .2s;
+  }
+  .search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  .search-box input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text);
+    padding: 10px 0;
+    width: 100%;
+    font-size: 14px;
+  }
+  .search-box svg { width: 18px; height: 18px; fill: var(--muted); margin-right: 10px; flex-shrink: 0; }
+
+  /* Mobile search */
+  .mobile-search { display: none; padding: 0 24px 16px; }
+  .mobile-search .search-box { width: 100%; }
+
+  /* Layout */
+  .container { max-width: 1280px; margin: 0 auto; padding: 24px; display: flex; gap: 24px; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .sidebar a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: .15s;
+    cursor: pointer;
+  }
+  .sidebar a:hover, .sidebar a.active { color: var(--text); background: var(--card); }
+  .sidebar a .count {
+    float: right;
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--card);
+    padding: 0 6px;
+    border-radius: 4px;
+  }
+  .sidebar a:hover .count, .sidebar a.active .count { background: var(--card-hover); }
+
+  /* Main */
+  .main { flex: 1; min-width: 0; }
+
+  /* AD */
+  .ad-spot {
+    background: var(--ad-bg);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+    transition: .2s;
+    cursor: pointer;
+  }
+  .ad-spot:hover { border-color: #444; background: #181818; }
+  .ad-spot .ad-label {
+    display: inline-block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+
+  /* Section */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .section-header h2 { font-size: 20px; font-weight: 600; }
+  .section-header .more {
+    color: var(--muted);
+    font-size: 13px;
+    text-decoration: none;
+  }
+  .section-header .more:hover { color: var(--accent); }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 12px;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: .2s;
+    position: relative;
+  }
+  .card:hover {
+    background: var(--card-hover);
+    border-color: #383838;
+    transform: translateY(-1px);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    background: var(--accent-glow);
+    color: var(--accent);
+  }
+  .card-title { font-size: 15px; font-weight: 600; }
+  .card-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .card-tags { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .card-tags span {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,.05);
+    color: var(--muted);
+  }
+  .card .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  /* No result */
+  .no-result {
+    text-align: center;
+    padding: 60px 0;
+    color: var(--muted);
+  }
+  .no-result svg { width: 48px; height: 48px; fill: var(--border); margin-bottom: 12px; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .header-inner .search-box { display: none; }
+    .mobile-search { display: block; }
+    .container { padding: 16px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+</style>
+</head>
+<body>
+
+<<<<<<< HEAD
+<!-- ==================== Header ==================== -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">AI</div>
+      <div>
+        <span class="logo-text">AI 导航</span>
+        <span class="logo-badge">精选</span>
+      </div>
+    </div>
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索 AI 工具名称、描述、标签..." oninput="handleSearch()">
+    </div>
+    <div class="header-actions">
+      <a href="#" onclick="resetAll()">全部</a>
+      <a href="javascript:;" class="btn-primary" onclick="alert('📮 联系邮箱：hello@ainav.com')">提交工具</a>
+=======
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      AI 导航
+      <span>v1</span>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" id="searchInput" placeholder="搜索 AI 工具..." oninput="filterTools()">
+    </div>
+  </div>
+  <div class="mobile-search">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <input type="text" placeholder="搜索 AI 工具..." oninput="filterTools()">
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+    </div>
+  </div>
+</header>
+
+<<<<<<< HEAD
+<!-- ==================== Main Container ==================== -->
+<div class="container">
+
+  <!-- Left Sidebar -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Top Banner Ad -->
+    <div class="ad-banner" onclick="alert('📢 广告位招租\n\n让你的 AI 产品出现在这里！\n联系：ad@ainav.com')">
+      <span class="ad-tag">广告</span>
+      <div class="ad-text">🚀 推荐你的 AI 产品 · 精准触达技术用户</div>
+      <div class="ad-price">728×90 黄金广告位 · 限时优惠</div>
+    </div>
+
+    <!-- Tool Content -->
+    <div id="content"></div>
+
+    <!-- Bottom Banner Ad -->
+    <div class="ad-banner" onclick="alert('📢 广告位招租\n\n底部 Banner 位 · 性价比之选\n联系：ad@ainav.com')">
+      <span class="ad-tag">广告</span>
+      <div class="ad-text">💡 优质 AI 工具推荐位 · 按周/月灵活投放</div>
+      <div class="ad-price">联系微信：AINav_Admin</div>
+    </div>
+
+    <footer>
+      © 2026 <a href="#">AI 导航</a> · 精选全球优质 AI 工具 · 持续更新中
+    </footer>
+  </div>
+
+  <!-- Right Sidebar (Ads) -->
+  <aside class="right-sidebar">
+    <div class="ad-sidebar" onclick="alert('📢 广告位招租\n\n300×250 侧栏广告\n联系：ad@ainav.com')">
+      <span class="ad-tag">广告</span>
+      <div class="ad-text">📢 侧栏广告位<br>精准曝光<br><br><span style="font-size:11px;color:#d1d5db;">300×250</span></div>
+    </div>
+    <div class="ad-sidebar" onclick="alert('📢 广告位招租\n\n第二个侧栏广告位\n联系：ad@ainav.com')">
+      <span class="ad-tag">广告</span>
+      <div class="ad-text">⭐ 推荐位<br>品牌展示<br><br><span style="font-size:11px;color:#d1d5db;">300×250</span></div>
+    </div>
+    <div class="ad-sidebar" onclick="alert('📢 广告位招租\n\n第三个侧栏广告位\n联系：ad@ainav.com')">
+      <span class="ad-tag">广告</span>
+      <div class="ad-text">🆕 新品发布<br>限时特惠<br><br><span style="font-size:11px;color:#d1d5db;">300×250</span></div>
+    </div>
+  </aside>
+
+</div>
+
+<script>
+// ======================== Data ========================
+const categories = {
+  chat:    { name: '对话助手',   emoji: '💬' },
+  image:   { name: '图像生成',   emoji: '🎨' },
+  code:    { name: 'AI 编程',    emoji: '💻' },
+  video:   { name: '视频创作',   emoji: '🎬' },
+  audio:   { name: '音频处理',   emoji: '🎵' },
+  write:   { name: '写作辅助',   emoji: '✍️' },
+  search:  { name: 'AI 搜索',    emoji: '🔍' },
+  tool:    { name: '效率工具',   emoji: '⚡' },
+  design:  { name: '设计创意',   emoji: '🎯' },
+};
+
+const tools = [
+  // ===== 对话助手 =====
+  { id:1,  cat:'chat', name:'ChatGPT',        desc:'OpenAI 旗舰产品，多模态对话模型，支持 GPT-4o',                    tags:['GPT-4o','多模态','免费'],         url:'https://chat.openai.com',            hot:true },
+  { id:2,  cat:'chat', name:'Claude',          desc:'Anthropic 出品，超长上下文理解，安全可靠',                        tags:['长上下文','安全','高质量'],         url:'https://claude.ai',                  hot:true },
+  { id:3,  cat:'chat', name:'Gemini',          desc:'Google 多模态 AI，深度整合 Google 生态',                         tags:['多模态','Google','免费'],           url:'https://gemini.google.com',           hot:true },
+  { id:4,  cat:'chat', name:'DeepSeek',        desc:'国产开源大模型，推理能力强悍，性价比高',                                      tags:['开源','推理','免费'],              url:'https://chat.deepseek.com',           hot:true },
+  { id:5,  cat:'chat', name:'Grok',            desc:'xAI 出品，实时联网，风格犀利幽默',                           tags:['实时','xAI','幽默'],               url:'https://grok.com' },
+  { id:6,  cat:'chat', name:'Kimi',            desc:'月之暗面出品，超长上下文处理，适合文档分析',                      tags:['长文本','国产','免费'],             url:'https://kimi.moonshot.cn' },
+  { id:7,  cat:'chat', name:'豆包',             desc:'字节跳动 AI 助手，多端覆盖，免费好用',                          tags:['国产','字节','免费'],               url:'https://www.doubao.com' },
+  { id:8,  cat:'chat', name:'通义千问',         desc:'阿里云大模型，开源可商用，中文能力强',                        tags:['开源','阿里','中文'],               url:'https://tongyi.aliyun.com' },
+  { id:9,  cat:'chat', name:'文心一言',         desc:'百度 AI 对话助手，中文场景优化',                        tags:['百度','中文','免费'],               url:'https://yiyan.baidu.com' },
+  { id:10, cat:'chat', name:'讯飞星火',         desc:'科大讯飞 AI 助手，语音能力突出',                          tags:['语音','国产','免费'],               url:'https://xinghuo.xfyun.cn' },
+
+  // ===== 图像生成 =====
+  { id:11, cat:'image',name:'Midjourney',      desc:'顶级 AI 绘画工具，艺术感和细节表现最佳',                           tags:['绘画','高质量','付费'],            url:'https://www.midjourney.com',          hot:true },
+  { id:12, cat:'image',name:'DALL·E 3',        desc:'OpenAI 图像生成，文字理解能力强',                            tags:['文字转图','GPT-4','付费'],          url:'https://openai.com/dall-e-3' },
+  { id:13, cat:'image',name:'Stable Diffusion',desc:'开源图像生成模型，可本地部署，自由度高',                       tags:['开源','本地部署','免费'],           url:'https://stability.ai' },
+  { id:14, cat:'image',name:'Adobe Firefly',   desc:'Adobe 商用级 AI 图像生成，安全商用',                           tags:['商用','Adobe','设计'],              url:'https://firefly.adobe.com' },
+  { id:15, cat:'image',name:'Leonardo.ai',     desc:'游戏资产 & 概念图 AI 生成工具',                             tags:['游戏','资产','免费'],               url:'https://leonardo.ai' },
+  { id:16, cat:'image',name:'Ideogram',        desc:'文字渲染最强的 AI 绘图工具',                             tags:['文字渲染','精准','免费'],           url:'https://ideogram.ai' },
+  { id:17, cat:'image',name:'Recraft',         desc:'矢量图 & 图标 AI 生成，设计师必备',                            tags:['矢量','图标','设计'],               url:'https://www.recraft.ai' },
+
+  // ===== AI 编程 =====
+  { id:18, cat:'code', name:'GitHub Copilot',  desc:'AI 代码补全，深度集成 VS Code 等 IDE',                         tags:['补全','IDE','付费'],                url:'https://github.com/features/copilot', hot:true },
+  { id:19, cat:'code', name:'Cursor',          desc:'AI-first 代码编辑器，内置多模型',                            tags:['编辑器','多模型','付费'],           url:'https://cursor.sh',                   hot:true },
+  { id:20, cat:'code', name:'Claude Code',     desc:'Anthropic 官方 AI 编程助手，终端 Agent 模式',                      tags:['终端','Agent','Anthropic'],         url:'https://claude.ai/code' },
+  { id:21, cat:'code', name:'Windsurf',        desc:'Cascade 自动编程模式，AI 驱动开发',                          tags:['自动编程','Agent','IDE'],           url:'https://codeium.com/windsurf' },
+  { id:22, cat:'code', name:'通义灵码',         desc:'阿里出品的中文 AI 编程助手，免费',                             tags:['国产','中文','免费'],               url:'https://tongyi.aliyun.com/lingma' },
+  { id:23, cat:'code', name:'Replit Agent',    desc:'浏览器内全栈开发，AI 自动生成',                              tags:['在线','全栈','免费'],               url:'https://replit.com' },
+  { id:24, cat:'code', name:'CodeGPT',         desc:'VS Code 中接入多模型 AI 编程助手',                          tags:['多模型','插件','免费'],             url:'https://codegpt.co' },
+
+  // ===== 视频创作 =====
+  { id:25, cat:'video',name:'Sora',            desc:'OpenAI 文生视频模型，画质惊艳',                             tags:['文生视频','OpenAI','付费'],          url:'https://sora.com',                    hot:true },
+  { id:26, cat:'video',name:'Runway Gen-3',    desc:'专业级 AI 视频编辑与生成平台',                           tags:['编辑','生成','专业'],               url:'https://runwayml.com' },
+  { id:27, cat:'video',name:'Pika',            desc:'简单易用的 AI 视频创作工具',                             tags:['易用','创作','免费'],               url:'https://pika.art' },
+  { id:28, cat:'video',name:'Kling',            desc:'可灵 AI 视频生成，快手出品',                             tags:['国产','快手','免费'],               url:'https://kling.kuaishou.com' },
+  { id:29, cat:'video',name:'剪映',             desc:'字节系视频剪辑，AI 功能丰富',                                tags:['剪辑','国产','免费'],               url:'https://www.capcut.cn' },
+  { id:30, cat:'video',name:'Vidu',            desc:'国产 AI 视频生成，语义理解强',                              tags:['国产','语义','免费'],               url:'https://www.vidu.cn' },
+
+  // ===== 音频处理 =====
+  { id:31, cat:'audio',name:'ElevenLabs',      desc:'顶级 AI 语音合成，情感丰富真实',                          tags:['语音合成','情感','付费'],           url:'https://elevenlabs.io' },
+  { id:32, cat:'audio',name:'Whisper',         desc:'OpenAI 开源语音识别模型，准确率高',                        tags:['语音识别','开源','免费'],           url:'https://openai.com/research/whisper' },
+  { id:33, cat:'audio',name:'Suno',            desc:'AI 音乐生成，歌词旋律全包',                             tags:['音乐','生成','免费'],               url:'https://suno.com' },
+  { id:34, cat:'audio',name:'通义听悟',         desc:'阿里 AI 会议转写 & 音频分析',                             tags:['转写','会议','免费'],               url:'https://tingwu.aliyun.com' },
+  { id:35, cat:'audio',name:'Adobe Podcast',   desc:'AI 音频增强，一键降噪修音',                               tags:['音频增强','降噪','免费'],           url:'https://podcast.adobe.com' },
+
+  // ===== 写作辅助 =====
+  { id:36, cat:'write',name:'Notion AI',       desc:'笔记 + AI 写作，知识管理神器',                             tags:['笔记','写作','付费'],               url:'https://www.notion.so' },
+  { id:37, cat:'write',name:'Jasper',          desc:'营销文案 & 博客 AI 写作工具',                            tags:['营销','文案','付费'],               url:'https://www.jasper.ai' },
+  { id:38, cat:'write',name:'Grammarly',       desc:'AI 英文写作校对、润色、语法检查',                            tags:['校对','英文','免费'],               url:'https://www.grammarly.com' },
+  { id:39, cat:'write',name:'Copy.ai',         desc:'电商 & 社交媒体文案 AI 生成',                            tags:['文案','电商','免费'],               url:'https://www.copy.ai' },
+  { id:40, cat:'write',name:'Gamma',           desc:'AI 一键生成 PPT / 文档 / 网页',                             tags:['PPT','文档','免费'],               url:'https://gamma.app' },
+
+  // ===== AI 搜索 =====
+  { id:41, cat:'search',name:'Perplexity',     desc:'AI 搜索引擎，答案带引用溯源',                             tags:['搜索','引用','免费'],               url:'https://www.perplexity.ai',           hot:true },
+  { id:42, cat:'search',name:'秘塔 AI',        desc:'AI 搜索，结构化信息展示无广告',                            tags:['结构化','国产','免费'],             url:'https://metaso.cn' },
+  { id:43, cat:'search',name:'天工 AI',        desc:'国内 AI 搜索，信息整合能力强',                            tags:['国产','搜索','免费'],               url:'https://www.tiangong.cn' },
+  { id:44, cat:'search',name:'Devv',           desc:'面向开发者的 AI 搜索引擎',                                  tags:['开发者','技术','免费'],             url:'https://devv.ai' },
+  { id:45, cat:'search',name':'Phind',          desc:'技术问答 AI 搜索，适合程序员',                          tags:['技术','问答','免费'],               url:'https://www.phind.com' },
+
+  // ===== 效率工具 =====
+  { id:46, cat:'tool', name:'Zapier AI',       desc:'自动化工作流平台，连接 5000+ 应用',                       tags:['自动化','工作流','付费'],           url:'https://zapier.com' },
+  { id:47, cat:'tool', name:'Otter.ai',        desc:'AI 会议记录 & 实时语音转录',                             tags:['会议','转录','免费'],               url:'https://otter.ai' },
+  { id:48, cat:'tool', name:'Mistral AI',      desc:'欧洲开源大模型，性能强悍',                              tags:['开源','欧洲','免费'],               url:'https://mistral.ai' },
+  { id:49, cat:'tool', name:'Mem',             desc:'AI 驱动的知识管理笔记工具',                               tags:['笔记','知识管理','免费'],           url:'https://mem.ai' },
+
+  // ===== 设计创意 =====
+  { id:50, cat:'design',name:'Canva AI',       desc:'在线设计平台，AI 一键生成海报/Logo',                         tags:['设计','在线','免费'],               url:'https://www.canva.com' },
+  { id:51, cat:'design',name:'Uizard',         desc:'AI 秒级生成 UI 界面原型',                              tags:['UI','原型','免费'],                 url:'https://uizard.io' },
+  { id:52, cat:'design',name:'Looka',          desc:'AI Logo 设计生成工具',                                 tags:['Logo','品牌','付费'],               url:'https://looka.com' },
+];
+
+// ======================== Render ========================
+let activeCat = null;
+
+function buildSidebar() {
+  const el = document.getElementById('sidebar');
+  const counts = {};
+  tools.forEach(t => { counts[t.cat] = (counts[t.cat]||0) + 1; });
+
+  let html = `<div class="sidebar-title">分类</div>`;
+  html += `<button class="sidebar-item${!activeCat?' active':''}" onclick="setCategory(null)">
+    <span class="sidebar-label"><span class="emoji">🏠</span> 全部</span>
+    <span class="count">${tools.length}</span>
+  </button>`;
+  Object.entries(categories).forEach(([key,cat]) => {
+    html += `<button class="sidebar-item${activeCat===key?' active':''}" onclick="setCategory('${key}')">
+      <span class="sidebar-label"><span class="emoji">${cat.emoji}</span> ${cat.name}</span>
+      <span class="count">${counts[key]||0}</span>
+    </button>`;
+  });
+  el.innerHTML = html;
+=======
+<div class="container">
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar"></nav>
+
+  <!-- Main -->
+  <div class="main">
+
+    <!-- 广告位 1 -->
+    <div class="ad-spot" onclick="alert('广告位招租 — 联系：admin@example.com')">
+      <span class="ad-label">广告</span>
+      <div>📢 在此展示你的 AI 产品 · 联系投放</div>
+    </div>
+
+    <div id="content"></div>
+
+    <!-- 广告位 2 -->
+    <div class="ad-spot" onclick="alert('广告位招租 — 联系：admin@example.com')">
+      <span class="ad-label">广告</span>
+      <div>🚀 推荐优质 AI 工具 · 位置有限</div>
+    </div>
+
+    <footer>© 2025 AI 导航 · 收集优质 AI 工具</footer>
+  </div>
+</div>
+
+<script>
+// ====== 数据 ======
+const categories = {
+  chat:    { name: '对话助手',   icon: '💬' },
+  image:   { name: '图像生成',   icon: '🎨' },
+  code:    { name: '编程开发',   icon: '💻' },
+  video:   { name: '视频创作',   icon: '🎬' },
+  audio:   { name: '音频处理',   icon: '🎵' },
+  write:   { name: '写作辅助',   icon: '✍️' },
+  search:  { name: 'AI 搜索',    icon: '🔍' },
+  tool:    { name: '效率工具',   icon: '⚡' },
+  other:   { name: '其他',       icon: '🧩' },
+};
+
+const tools = [
+  // 对话助手
+  { id:1,  cat:'chat', name:'ChatGPT',        desc:'OpenAI 旗舰对话模型，多模态全能',                    tags:['GPT-4','多模态'],         url:'https://chat.openai.com' },
+  { id:2,  cat:'chat', name:'Claude',          desc:'Anthropic 出品，长文本理解、安全可靠',                tags:['长上下文','安全'],         url:'https://claude.ai' },
+  { id:3,  cat:'chat', name:'Gemini',          desc:'Google 多模态 AI，与生态深度整合',                    tags:['多模态','Google'],          url:'https://gemini.google.com' },
+  { id:4,  cat:'chat', name:'DeepSeek',        desc:'国产开源大模型，推理能力强',                          tags:['开源','推理'],              url:'https://chat.deepseek.com' },
+  { id:5,  cat:'chat', name:'Kimi',            desc:'月之暗面出品，超长上下文处理',                        tags:['长文本','国产'],            url:'https://kimi.moonshot.cn' },
+  { id:6,  cat:'chat', name:'豆包',             desc:'字节跳动 AI 助手，多端覆盖',                          tags:['国产','字节'],              url:'https://www.doubao.com' },
+  { id:7,  cat:'chat', name:'Grok',            desc:'xAI 实时联网，风格犀利',                             tags:['实时','xAI'],              url:'https://grok.com' },
+  { id:8,  cat:'chat', name:'Qwen',            desc:'阿里通义千问，开源可商用',                            tags:['开源','阿里'],              url:'https://tongyi.aliyun.com' },
+  { id:9,  cat:'chat', name:'Perplexity',      desc:'AI 搜索引擎，带引用溯源',                             tags:['搜索','引用'],              url:'https://www.perplexity.ai' },
+  // 图像生成
+  { id:10, cat:'image',name:'Midjourney',      desc:'顶级 AI 绘画，艺术感极强',                          tags:['绘画','高质量'],            url:'https://www.midjourney.com' },
+  { id:11, cat:'image',name:'DALL·E 3',        desc:'OpenAI 图像生成，文字理解强',                       tags:['GPT-4','文字转图'],         url:'https://openai.com/dall-e-3' },
+  { id:12, cat:'image',name:'Stable Diffusion',desc:'开源图像生成，本地部署自由',                          tags:['开源','本地部署'],          url:'https://stability.ai' },
+  { id:13, cat:'image',name:'Firefly',         desc:'Adobe 商用级 AI 图像生成',                            tags:['商用','Adobe'],             url:'https://firefly.adobe.com' },
+  { id:14, cat:'image',name:'Leonardo.ai',     desc:'游戏资产 & 概念图生成',                              tags:['游戏','资产'],              url:'https://leonardo.ai' },
+  { id:15, cat:'image',name:'Ideogram',        desc:'文字渲染最强的 AI 绘图',                             tags:['文字渲染','精准'],          url:'https://ideogram.ai' },
+  // 编程开发
+  { id:16, cat:'code', name:'GitHub Copilot',  desc:'AI 代码补全，IDE 深度集成',                          tags:['补全','IDE'],               url:'https://github.com/features/copilot' },
+  { id:17, cat:'code', name:'Cursor',          desc:'AI-first 编辑器，内置多模型',                         tags:['编辑器','多模型'],          url:'https://cursor.sh' },
+  { id:18, cat:'code', name:'Claude Code',     desc:'Anthropic 终端 AI 编程助手',                        tags:['终端','Agent'],             url:'https://claude.ai/code' },
+  { id:19, cat:'code', name:'Windsurf',        desc:'Cascade 模式，全自动编程',                           tags:['自动编程','Agent'],         url:'https://codeium.com/windsurf' },
+  { id:20, cat:'code', name:'通义灵码',         desc:'阿里出品，中文友好',                                tags:['国产','中文'],              url:'https://tongyi.aliyun.com/lingma' },
+  { id:21, cat:'code', name:'Replit Agent',    desc:'浏览器内全栈开发，AI 驱动',                          tags:['在线','全栈'],              url:'https://replit.com' },
+  // 视频创作
+  { id:22, cat:'video',name:'Sora',            desc:'OpenAI 文生视频，惊艳画质',                          tags:['文生视频','OpenAI'],        url:'https://sora.com' },
+  { id:23, cat:'video',name:'Runway Gen-3',    desc:'专业级 AI 视频编辑与生成',                           tags:['编辑','生成'],              url:'https://runwayml.com' },
+  { id:24, cat:'video',name:'Pika',            desc:'简单易用的 AI 视频工具',                             tags:['易用','创作'],              url:'https://pika.art' },
+  { id:25, cat:'video',name:'剪映',             desc:'字节系视频剪辑，AI 功能丰富',                          tags:['剪辑','国产'],              url:'https://jianshe.app' },
+  // 音频处理
+  { id:26, cat:'audio',name:'ElevenLabs',      desc:'顶级 AI 语音合成，情感丰富',                         tags:['语音合成','情感'],          url:'https://elevenlabs.io' },
+  { id:27, cat:'audio',name:'Whisper',         desc:'OpenAI 开源语音识别',                               tags:['语音识别','开源'],          url:'https://openai.com/research/whisper' },
+  { id:28, cat:'audio',name:'Suno',            desc:'AI 音乐生成，歌词旋律全包',                          tags:['音乐','生成'],              url:'https://suno.com' },
+  { id:29, cat:'audio',name:'讯飞星火',         desc:'科大讯飞语音+AI 能力',                              tags:['语音','国产'],              url:'https://xinghuo.xfyun.cn' },
+  // 写作辅助
+  { id:30, cat:'write',name:'Notion AI',       desc:'笔记+AI 写作，提升效率',                             tags:['笔记','写作'],              url:'https://www.notion.so' },
+  { id:31, cat:'write',name:'Jasper',          desc:'营销文案 & 博客 AI 写作',                           tags:['营销','文案'],              url:'https://www.jasper.ai' },
+  { id:32, cat:'write',name:'Grammarly',       desc:'AI 英文写作校对、润色',                              tags:['校对','英文'],              url:'https://www.grammarly.com' },
+  // AI 搜索
+  { id:33, cat:'search',name:'Perplexity',     desc:'带引用的 AI 搜索引擎',                              tags:['引用','深度'],              url:'https://www.perplexity.ai' },
+  { id:34, cat:'search',name:'天工 AI',         desc:'国内 AI 搜索，信息整合',                             tags:['国产','搜索'],              url:'https://www.tiangong.cn' },
+  { id:35, cat:'search',name:'秘塔 AI',          desc:'AI 搜索，结构化信息展示',                          tags:['结构化','国产'],            url:'https://metaso.cn' },
+  // 效率工具
+  { id:36, cat:'tool', name:'Zapier AI',       desc:'自动化工作流，连接各应用',                           tags:['自动化','工作流'],          url:'https://zapier.com' },
+  { id:37, cat:'tool', name:'Gamma',           desc:'AI 一键生成 PPT/文档',                              tags:['PPT','文档'],               url:'https://gamma.app' },
+  { id:38, cat:'tool', name:'Otter.ai',        desc:'AI 会议记录 & 实时转录',                             tags:['会议','转录'],              url:'https://otter.ai' },
+  { id:39, cat:'tool', name:'Mistral',         desc:'欧洲开源大模型，性能强悍',                           tags:['开源','欧洲'],              url:'https://mistral.ai' },
+];
+
+// ====== 渲染 ======
+let activeCat = null;
+
+function renderSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  let html = `<div class="sidebar-title">分类</div>
+    <a class="${!activeCat ? 'active' : ''}" onclick="setCategory(null)">全部 <span class="count">${tools.length}</span></a>`;
+  const counts = {};
+  tools.forEach(t => { counts[t.cat] = (counts[t.cat]||0) + 1; });
+  Object.entries(categories).forEach(([key,cat]) => {
+    html += `<a class="${activeCat===key?'active':''}" onclick="setCategory('${key}')">${cat.icon} ${cat.name} <span class="count">${counts[key]||0}</span></a>`;
+  });
+  sidebar.innerHTML = html;
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+}
+
+function setCategory(cat) {
+  activeCat = cat;
+<<<<<<< HEAD
+  document.getElementById('searchInput').value = '';
+  buildSidebar();
+  render();
+}
+
+function handleSearch() {
+  buildSidebar();
+  render();
+}
+
+function resetAll() {
+  activeCat = null;
+  document.getElementById('searchInput').value = '';
+  buildSidebar();
+  render();
+}
+
+function render() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  const container = document.getElementById('content');
+
+  // Filter
+=======
+  renderSidebar();
+  renderTools();
+}
+
+function renderTools() {
+  const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+  const content = document.getElementById('content');
+
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+  let filtered = tools;
+  if (activeCat) filtered = filtered.filter(t => t.cat === activeCat);
+  if (query) {
+    filtered = filtered.filter(t =>
+      t.name.toLowerCase().includes(query) ||
+      t.desc.toLowerCase().includes(query) ||
+<<<<<<< HEAD
+      t.tags.some(tag => tag.toLowerCase().includes(query)) ||
+      t.url.toLowerCase().includes(query)
+    );
+  }
+
+  // No results
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="no-result">
+      <div class="no-result-icon">🔍</div>
+      <p>没有找到匹配 "<strong>${query}</strong>" 的工具</p>
+    </div>`;
+    return;
+  }
+
+=======
+      t.tags.some(tag => tag.toLowerCase().includes(query))
+    );
+  }
+
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+  // Group by category
+  const groups = {};
+  filtered.forEach(t => {
+    if (!groups[t.cat]) groups[t.cat] = [];
+    groups[t.cat].push(t);
+  });
+
+<<<<<<< HEAD
+  // Build HTML
+  let html = '';
+  Object.entries(groups).forEach(([cat, items], idx) => {
+    const catInfo = categories[cat] || { name: cat, emoji: '📁' };
+
+    html += `<div class="section" id="section-${cat}">
+      <div class="section-header">
+        <h2>${catInfo.emoji} ${catInfo.name}</h2>
+        <span class="section-count">${items.length} 个工具</span>
+      </div>
+      <div class="grid">`;
+
+    items.forEach(t => {
+      const badge = t.hot ? '<span class="hot-badge">🔥 热门</span>' : '';
+      html += `<a class="card" href="${t.url}" target="_blank" rel="noopener">
+        ${badge}
+        <div class="card-icon">${catInfo.emoji}</div>
+        <div class="card-title">${t.name}</div>
+        <div class="card-desc">${t.desc}</div>
+        <div class="card-tags">${t.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
+        <div class="card-url">${new URL(t.url).hostname.replace('www.','')}</div>
+      </a>`;
+    });
+
+    html += `</div></div>`;
+
+    // Insert an in-feed ad between section 2 and 3
+    if (idx === 1 && !query && !activeCat) {
+      html += `<div class="ad-banner" onclick="alert('📢 信息流广告位\n\n嵌入在分类之间，曝光量大\n联系：ad@ainav.com')" style="margin-bottom:36px;">
+        <span class="ad-tag">广告</span>
+        <div class="ad-text">⚡ 信息流广告 · 嵌入分类之间 · 高曝光</div>
+        <div class="ad-price">按周投放，价格从优</div>
+      </div>`;
+    }
+  });
+
+  container.innerHTML = html;
+}
+
+// ======================== Init ========================
+buildSidebar();
+render();
+=======
+  if (Object.keys(groups).length === 0) {
+    content.innerHTML = `<div class="no-result">
+      <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <p>没有找到匹配的工具</p>
+    </div>`;
+    return;
+  }
+
+  let html = '';
+  Object.entries(groups).forEach(([cat, items]) => {
+    const catInfo = categories[cat] || { name: cat, icon: '📁' };
+    html += `<div class="section">
+      <div class="section-header">
+        <h2>${catInfo.icon} ${catInfo.name}</h2>
+        <a class="more" onclick="setCategory('${cat}')">查看全部 →</a>
+      </div>
+      <div class="grid">
+        ${items.map(t => `
+          <a class="card" href="${t.url}" target="_blank" rel="noopener">
+            <div class="card-top">
+              <div class="card-icon">${catInfo.icon}</div>
+              <div class="card-title">${t.name}</div>
+            </div>
+            <div class="card-desc">${t.desc}</div>
+            <div class="card-tags">${t.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
+          </a>
+        `).join('')}
+      </div>
+    </div>`;
+  });
+
+  content.innerHTML = html;
+}
+
+function filterTools() {
+  // sync both search inputs
+  const val = document.getElementById('searchInput').value;
+  document.querySelectorAll('.search-box input').forEach(inp => inp.value = val);
+  renderTools();
+}
+
+// Init
+renderSidebar();
+renderTools();
+>>>>>>> 59cb8df5bcce67499501fb3858171481ad012689
+</script>
+</body>
+</html>
