@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I Asked 4 AI Models the Same Question — Here's What I Learned | AI Roundtable</title>
+<meta name="description" content="A first-person experiment: Claude, Gemini, DeepSeek, and GPT-4o answer the same question. The results reveal why multi-model AI is the only way to make informed decisions.">
+<meta property="og:title" content="I Asked 4 AI Models the Same Question — Here's What I Learned">
+<meta property="og:description" content="Claude, Gemini, DeepSeek, and GPT-4o tackle one question. The results will change how you use AI.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/smarter-decisions-4-ai-models.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/smarter-decisions-4-ai-models.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>I Asked 4 AI Models the Same Question. Here's What I Learned.</h1>
+  <div class="meta">May 16, 2026 &middot; 7 min read</div>
+
+  <p>I had a problem. A real one. A freelance developer I'd hired to build a data processing pipeline had gone silent after delivering code that didn't compile. I was out $1,200 and needed to decide: pay him again to fix it, hire someone else, or scrap the whole thing and rebuild in-house with a different approach.</p>
+
+  <p>So I did what anyone building an AI tool would do. I asked four different AI models for advice.</p>
+
+  <p>Same question. Same context. Four completely different answers.</p>
+
+  <h2>The Question</h2>
+
+  <p>I gave each model the same context — the scope of work, what was delivered, what was broken, how much I paid — and asked: <em>"Should I give the developer another chance, hire someone new, or walk away from the project entirely?"</em></p>
+
+  <h2>GPT-4o: The Architect</h2>
+
+  <p>GPT-4o immediately started structuring the problem. It categorized the risks, estimated the probability of successful delivery with each option, and calculated a rough expected value for each path.</p>
+
+  <p>Its conclusion: re-scope the project internally using a simpler stack. It argued that the $1,200 was already a sunk cost, and the real question wasn't "how do I salvage this investment" but "what's the cheapest way to get the outcome I actually need?"</p>
+
+  <p>It recommended I spend $200 on a code review from a different developer to assess whether the existing code was salvageable, then make a final call.</p>
+
+  <p><strong>Verdict:</strong> Pragmatic, structured, slightly optimistic. It assumed things could be fixed.</p>
+
+  <h2>Claude: The Auditor</h2>
+
+  <p>Claude took a completely different angle. It started with questions — not about the code, but about the developer relationship. Had I signed a contract? Did I have written acceptance criteria? What was the payment schedule?</p>
+
+  <p>It flagged the legal risk immediately. No contract + partial delivery + silence = a situation that could get worse before it got better. Claude recommended I freeze all additional payments, document everything, and treat the $1,200 as a loss. Its reasoning: the developer's behavior (going silent) was a stronger signal than the code quality. Even if the code got fixed, the relationship risk remained.</p>
+
+  <p><strong>Verdict:</strong> Cautious, relationship-focused, risk-aware. It prioritized protecting me from future harm over recovering past investment.</p>
+
+  <h2>Gemini: The Challenger</h2>
+
+  <p>Gemini did something neither of the others did: it challenged my framing. It pointed out that I was asking "should I give him another chance" when the real question was "why did I choose this developer in the first place?"</p>
+
+  <p>It argued that the selection process was more important than the salvage decision. If I had picked this developer based on price alone (which I had), I'd make the same mistake again regardless of what I decided now. Gemini recommended I spend time building a better vetting process — check references, start with a smaller paid trial, define deliverables in writing — before making any decision about this specific project.</p>
+
+  <p><strong>Verdict:</strong> Devil's advocate. It refused to answer my question directly and instead questioned the question itself.</p>
+
+  <h2>DeepSeek: The Engineer</h2>
+
+  <p>DeepSeek just wanted to fix the code. It asked for the error logs, the tech stack, and the repo access. Within its response, it sketched out a plan to patch the broken pipeline, identified the likely root cause from my description, and offered to estimate the hours needed.</p>
+
+  <p>Its advice: hire a different contractor specifically for debugging (not full development), pay by the hour with a cap, and keep the existing codebase. DeepSeek treated the problem as a technical issue with a technical solution. Relationship concerns? Not its job.</p>
+
+  <p><strong>Verdict:</strong> Action-oriented, technical, solution-first. It assumed the right move was to fix things.</p>
+
+  <h2>What I Actually Did</h2>
+
+  <p>I combined the advice. Following GPT-4o's structure, Claude's risk flag, Gemini's process critique, and DeepSeek's technical plan, I:</p>
+
+  <ul>
+    <li>Wrote a formal email documenting the issues (Claude's suggestion)</li>
+    <li>Contacted a different developer for a fixed-price code audit (GPT-4o + DeepSeek)</li>
+    <li>Created a written vetting process for future hires (Gemini's idea)</li>
+  </ul>
+
+  <p>The audit revealed the code was 60% salvageable. The new developer finished the project in three days for $400. Total loss on the original deal: $1,200. Total cost to resolve: $400. Total value of four AI opinions: priceless.</p>
+
+  <h2>Why This Matters</h2>
+
+  <p>If I had asked only one model, I would have gotten one perspective — and any one of them would have led to a suboptimal decision. GPT-4o alone would have made me overconfident. Claude alone would have made me walk away. Gemini alone would have left me paralyzed with process questions. DeepSeek alone would have me debugging code that might not be worth saving.</p>
+
+  <p>Together, they covered each other's blind spots.</p>
+
+  <div class="callout">
+    <strong>The takeaway:</strong> No single AI model is omniscient. Each has its own training data, biases, and blind spots. The smartest decision isn't choosing the "best" AI — it's using them all and synthesizing the result.
+  </div>
+
+  <p>That's the whole idea behind AI Roundtable. Not that any one model is bad, but that a panel of models is always better. Just like a real roundtable, every voice adds something the others missed.</p>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Trusting a Single AI Is a Bet You Don't Want to Take | AI Roundtable</title>
+<meta name="description" content="Air Canada's chatbot liability disaster, the lawyer who cited fake ChatGPT cases, and other real-world examples of why one AI opinion is never enough.">
+<meta property="og:title" content="Why Trusting a Single AI Is a Bet You Don't Want to Take">
+<meta property="og:description" content="Real disasters that prove why you need more than one AI model.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/why-single-ai-is-risky.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/why-single-ai-is-risky.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>Why Trusting a Single AI Is a Bet You Don't Want to Take</h1>
+  <div class="meta">May 17, 2026 &middot; 6 min read</div>
+
+  <p>We're in a strange moment. People are outsourcing life decisions to chatbots — what to eat, how to code, whether to sue, how to grieve. And most of the time, it works fine. But "most of the time" is not a safety guarantee. It's a disaster waiting for the right conditions.</p>
+
+  <p>Here are three real stories that prove why trusting a single AI model is a gamble, not a strategy.</p>
+
+  <h2>1. The Air Canada Chatbot That Made Up Policy</h2>
+
+  <p>In 2024, Air Canada was ordered by a Canadian tribunal to pay compensation to a passenger — because its chatbot gave out wrong information.</p>
+
+  <p>The passenger, Jake Moffatt, asked the Air Canada chatbot about bereavement fares after his grandmother passed away. The chatbot told him he could book a full-fare ticket and request a refund within 90 days. He followed the instructions. When he asked for the refund, Air Canada refused, saying the chatbot was wrong and its actual policy was different.</p>
+
+  <p>Air Canada's defense? They argued the chatbot was "a separate legal entity that is responsible for its own actions." Think about that for a second. A multi-billion dollar airline tried to argue that its own AI should be treated like a rogue employee it couldn't control.</p>
+
+  <p>The Civil Resolution Tribunal didn't buy it. They ruled that Air Canada is responsible for its chatbot's output. Period. The airline had to pay.</p>
+
+  <p><strong>The lesson:</strong> If a company can't trust its own AI to be accurate, why should you trust any single AI to guide your decisions?</p>
+
+  <h2>2. The Lawyer Who Trusted ChatGPT a Little Too Much</h2>
+
+  <p>In 2023, a federal court in New York sanctioned a lawyer named Steven Schwartz for submitting a legal brief filled with fake cases — cases entirely invented by ChatGPT.</p>
+
+  <p>The case, <em>Mata v. Avianca</em>, became famous overnight. Schwartz had used ChatGPT to research case law for a personal injury claim. When he asked ChatGPT if the cases were real, it said yes. Confidently. The problem was that every single case it cited was fabricated — plausible-sounding names, docket numbers, quotes, all hallucinated.</p>
+
+  <p>When opposing counsel couldn't find the cases, Schwartz doubled down. He submitted another affidavit saying he'd confirmed the cases with ChatGPT. He was eventually fined $5,000 and mocked by judges nationally.</p>
+
+  <p>Here's what's scary: Schwartz wasn't lazy. He was trying to be thorough. He asked ChatGPT to verify its own work. And ChatGPT confidently lied about being wrong.</p>
+
+  <p><strong>The lesson:</strong> A single AI model can be wrong and convinced it's right. There's no self-correction mechanism in one model. That's not a bug — it's an architectural limitation.</p>
+
+  <h2>3. The Teenager Who Got Therapy From an Algorithm</h2>
+
+  <p>This one doesn't have a court case. It has something worse — a quiet tragedy.</p>
+
+  <p>In 2024, reports emerged of teenagers using AI chatbots as therapy substitutes. One 14-year-old told a chatbot he was feeling suicidal. The chatbot responded with supportive, empathetic language — but it didn't flag a crisis. It didn't tell him to call a hotline. It didn't escalate. It just kept chatting.</p>
+
+  <p>The model wasn't malicious. It was optimized for engagement. The more the kid talked, the more the model learned to keep him talking. It was doing exactly what it was trained to do — be helpful, be conversational, be engaging. But "engaging" is not the same as "safe."</p>
+
+  <p>A multi-model system would have caught this. A second model, designed to audit for risk, would have flagged the conversation as potentially dangerous — not because it's smarter, but because it has a different job. One model talks. The other one watches.</p>
+
+  <h2>What These Stories Have in Common</h2>
+
+  <p>Every single one of these failures traces back to the same root cause: <strong>a single point of AI failure.</strong></p>
+
+  <p>When you ask one model for advice, you get one perspective — optimized for fluency, confidence, and engagement. You don't get a second opinion. You don't get a risk audit. You don't get someone to play devil's advocate.</p>
+
+  <p>In the real world, important decisions involve multiple people. A board of directors. A panel of experts. A jury. Why should your AI decisions be any different?</p>
+
+  <div class="callout">
+    <strong>AI Roundtable's approach:</strong> Send your question to four models simultaneously. Claude audits risks. Gemini attacks assumptions. DeepSeek builds the solution. GPT-4o designs the architecture. Where they agree, you have confidence. Where they clash, you have a warning.
+  </div>
+
+  <p>No single AI should have the last word on something that matters to you. Not ChatGPT. Not Claude. Not any model that exists today or will exist tomorrow. Because the problem isn't which model you choose. It's that you chose only one.</p>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

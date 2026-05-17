@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Data Is Their Training — Why Privacy Demands a Second Opinion | AI Roundtable</title>
+<meta name="description" content="The Samsung ChatGPT data leak of 2023 exposed how single-point AI use creates privacy risks. Multi-model architecture is the answer.">
+<meta property="og:title" content="Your Data Is Their Training — Why Privacy Demands a Second Opinion">
+<meta property="og:description" content="How the Samsung data leak proves multi-model AI is a privacy necessity.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/local-ai-privacy.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/local-ai-privacy.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>Your Data Is Their Training: Why Privacy Demands a Second Opinion</h1>
+  <div class="meta">May 15, 2026 &middot; 6 min read</div>
+
+  <p>In April 2023, Samsung employees did something that should never have been allowed: they pasted confidential company data into ChatGPT.</p>
+
+  <p>Not once. Three times in under a month — each incident a different kind of leak.</p>
+
+  <ul>
+    <li>An employee pasted proprietary source code into ChatGPT, asking it to debug a faulty database connection.</li>
+    <li>Another employee pasted meeting notes containing sensitive performance data and asked ChatGPT to summarize them.</li>
+    <li>A third employee submitted a recording of a company meeting for AI transcription.</li>
+  </ul>
+
+  <p>All three were internal employees trying to do their jobs more efficiently. None of them were trying to leak data. They were just using the most convenient tool available.</p>
+
+  <p>And that's exactly the problem.</p>
+
+  <h2>The Default Is Exposure</h2>
+
+  <p>When you paste data into ChatGPT, Claude, Gemini, or any cloud-based AI, that data typically gets used for training. OpenAI's own privacy policy at the time stated that it could use content submitted via ChatGPT "to improve and develop our Services." That's corporate speak for "your data helps train the next version of the model."</p>
+
+  <p>Samsung had to ban ChatGPT after the leaks. They had no choice. But the ban didn't solve anything — it just drove the behavior underground. Employees still needed AI tools to do their jobs. They just started using them less openly.</p>
+
+  <p>This is the fundamental tension: <strong>AI tools are incredibly useful, but using them means trusting a third party with your data.</strong></p>
+
+  <h2>The Single-Model Privacy Nightmare</h2>
+
+  <p>When you rely on a single AI provider, you're creating a single point of data exposure. Every question you ask, every document you paste, every bit of context you share goes into one pipe — and if that pipe leaks (or is used for training), everything is exposed.</p>
+
+  <p>The problem isn't that AI companies are malicious. It's that their incentives don't align with your privacy. They want better models. Better models need more training data. Your data is training data.</p>
+
+  <p>Even with opt-out controls, the burden is on you to remember which data to protect. And as the Samsung case shows, people forget. They're trying to solve a problem, not protect a policy.</p>
+
+  <h2>How Multi-Model Architecture Changes the Equation</h2>
+
+  <p>This is where the multi-model approach fundamentally changes the privacy calculus.</p>
+
+  <p>AI Roundtable was designed with a zero-data-upload principle from day one. No accounts. No logins. No training on your inputs. Your question goes to four models, and when you close the tab, that conversation doesn't exist anymore.</p>
+
+  <p>But there's a deeper privacy advantage to the multi-model approach that most people miss:</p>
+
+  <p><strong>Distributed trust.</strong></p>
+
+  <p>When you use a single AI, you're trusting that provider with everything — the full context of your question, your intent, your identity signals. When you distribute the same question across multiple models, no single provider has the complete picture. Claude sees one fragment. Gemini sees another. No one gets the whole story.</p>
+
+  <p>It's the same principle that makes multi-party computation secure: any single node is useless to an attacker. They need all of them.</p>
+
+  <div class="callout">
+    <strong>Privacy by architecture:</strong> AI Roundtable doesn't store your questions. It doesn't train on your inputs. And by splitting your query across four independent models, it ensures that no single provider ever sees the full context of your decision. Privacy isn't a checkbox — it's how the system is built.
+  </div>
+
+  <h2>What Samsung Should Have Had</h2>
+
+  <p>Imagine if instead of banning ChatGPT, Samsung had deployed a multi-model internal AI tool:</p>
+
+  <ul>
+    <li>Sensitive source code could be sent to a local instance for debugging (no data leaves the building).</li>
+    <li>Meeting summaries could be split across models, with each provider seeing only anonymized fragments.</li>
+    <li>Critical decisions would require consensus across multiple models, reducing the risk that any single provider's data handling policy becomes a liability.</li>
+  </ul>
+
+  <p>The ban wouldn't have been necessary. The utility would have stayed. And the data would have been protected — not by policy, but by architecture.</p>
+
+  <h2>The Bottom Line</h2>
+
+  <p>Privacy in the AI era isn't about choosing the "most trustworthy" provider. It's about designing a system where no single provider needs to be fully trusted.</p>
+
+  <p>That's what AI Roundtable does. Not by being more secure than ChatGPT or Claude or Gemini. But by ensuring that no matter what happens to any single model provider, your data and your decisions stay yours.</p>
+
+  <p><strong>One AI is a liability. Four is a strategy.</strong></p>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

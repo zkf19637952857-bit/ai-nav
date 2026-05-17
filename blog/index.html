@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog — AI Roundtable | zhaokefei.com</title>
+<meta name="description" content="Essays on multi-model AI reasoning, real-world AI failures, and why your decisions need more than one algorithm.">
+<meta property="og:title" content="AI Roundtable Blog">
+<meta property="og:description" content="Essays on multi-model AI and smarter decision-making.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<div class="blog-header">
+  <h1>The AI Roundtable Blog</h1>
+  <p>Real stories about why one AI is never enough.</p>
+</div>
+
+<div class="blog-list">
+  <a href="why-single-ai-is-risky.html" class="blog-card">
+    <div class="date">May 17, 2026</div>
+    <h2>Why Trusting a Single AI Is a Bet You Don't Want to Take</h2>
+    <p>The Air Canada chatbot that invented policy. The lawyer who cited fake cases made up by ChatGPT. The kid who got dangerous therapy advice from a language model. Three real disasters that prove why one AI opinion is never enough.</p>
+    <div class="tags"><span class="tag">AI Safety</span><span class="tag">Risk</span><span class="tag">Real Stories</span></div>
+  </a>
+
+  <a href="smarter-decisions-4-ai-models.html" class="blog-card">
+    <div class="date">May 16, 2026</div>
+    <h2>I Asked 4 AI Models the Same Question. Here's What I Learned.</h2>
+    <p>A first-person experiment pitting Claude, Gemini, DeepSeek, and GPT-4o against the same problem. The results were humbling — and proved that diversity of thought isn't just a buzzword, it's a survival mechanism.</p>
+    <div class="tags"><span class="tag">Multi-Model</span><span class="tag">Comparison</span><span class="tag">Experiment</span></div>
+  </a>
+
+  <a href="local-ai-privacy.html" class="blog-card">
+    <div class="date">May 15, 2026</div>
+    <h2>Your Data Is Their Training: Why Privacy Demands a Second Opinion</h2>
+    <p>When Samsung employees accidentally leaked trade secrets to ChatGPT in 2023, it wasn't just a policy failure — it was a wake-up call. Here's how multi-model architecture can protect you even when individual models can't.</p>
+    <div class="tags"><span class="tag">Privacy</span><span class="tag">Data Security</span><span class="tag">Enterprise</span></div>
+  </a>
+</div>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

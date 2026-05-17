@@ -1,217 +1,146 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 导航站 — 发现最好的 AI 工具</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Roundtable — Multi-Model AI Decision System | zhaokefei.com</title>
+<meta name="description" content="AI Roundtable pits 4 leading AI models against each other to stress-test decisions. Built by a truck driver who refused to stop learning.">
+<meta property="og:title" content="AI Roundtable — Multi-Model AI Decision System">
+<meta property="og:description" content="Four AI models. One question. No blind spots.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com">
 <link rel="stylesheet" href="style.css">
+<!-- Google tag (gtag.js) placeholder -->
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a href="/" class="logo">AI <span>导航站</span></a>
-    <nav>
-      <a href="/" class="active">工具导航</a>
-      <a href="articles.html">文章</a>
-      <a href="guestbook.html">留言板</a>
-    </nav>
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog/">Blog</a>
+    </div>
   </div>
-</header>
+</nav>
 
 <section class="hero">
-  <h1>发现最好的 AI 工具</h1>
-  <p>精选人工智能工具，提升你的工作效率和创造力</p>
-  <div class="search-box">
-    <span class="icon">&#128269;</span>
-    <input type="text" id="search" placeholder="搜索工具名称或描述..." oninput="filterTools(this.value)">
+  <div class="hero-inner">
+    <span class="hero-badge">Multi-Model AI Decision System</span>
+    <h1><span class="c1">AI</span> <span class="c2">ROUND</span><span class="c3">TABLE</span></h1>
+    <p class="hero-tagline">Your decisions deserve more than one opinion.</p>
+    <p class="hero-sub">AI Roundtable sends your question to four leading AI models at once, then surfaces where they agree — and where they clash. No more trusting a single chatbot with things that matter.</p>
+
+    <div class="hero-img-wrap">
+      <img src="https://zhaokefei.com/369.jpeg" alt="AI Roundtable — four AI models debating your question">
+    </div>
+
+    <div class="model-pills">
+      <span class="model-pill pill-cyan"><span class="pill-dot dot-cyan"></span>Claude (Auditor)</span>
+      <span class="model-pill pill-purple"><span class="pill-dot dot-purple"></span>Gemini (Challenger)</span>
+      <span class="model-pill pill-green"><span class="pill-dot dot-green"></span>DeepSeek (Engineer)</span>
+      <span class="model-pill pill-gold"><span class="pill-dot dot-gold"></span>GPT-4o (Architect)</span>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">AI Models</div></div>
+      <div class="stat-item"><div class="stat-num">1</div><div class="stat-label">Question</div></div>
+      <div class="stat-item"><div class="stat-num">&infin;</div><div class="stat-label">Decisions</div></div>
+      <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Data Upload</div></div>
+    </div>
   </div>
 </section>
 
-<div class="container">
-  <div class="ad ad-banner" onclick="alert('广告位招租 - 联系：example@email.com')">
-    &#128640; 广告位 - 让更多用户发现你的 AI 产品
+<section class="intro-section">
+  <div class="section-inner">
+    <h2 class="section-title">Your Personal AI Council</h2>
+    <p class="section-sub">Every AI model has blind spots. GPT-4o is optimistic. Claude is cautious. Gemini plays devil's advocate. DeepSeek just wants to build stuff. Alone, each is useful. Together, they catch what no single model can.</p>
   </div>
-</div>
+</section>
 
-<div class="layout">
-  <main>
-    <section class="cat-section" data-cat="chat" id="chat">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#6366f1;">&#128172;</div>
-        <h2 class="cat-title">对话助手</h2>
+<section class="how-section">
+  <div class="section-inner">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Three steps to a decision that's been stress-tested from every angle.</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Ask Your Question</h3>
+        <p>Type any decision — technical, strategic, personal. No account, no login, no data uploaded.</p>
       </div>
-      <div class="tool-grid" id="grid-chat"></div>
-    </section>
-
-    <section class="cat-section" data-cat="image" id="image">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#ec4899;">&#127912;</div>
-        <h2 class="cat-title">图像生成</h2>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Four Models Debate</h3>
+        <p>Claude audits risks, Gemini attacks assumptions, DeepSeek builds solutions, GPT-4o designs the architecture.</p>
       </div>
-      <div class="tool-grid" id="grid-image"></div>
-      <div class="ad ad-inline" onclick="alert('广告位招租 - 联系：example@email.com')">
-        &#128226; 内嵌广告位 - 精准触达 AI 用户群体
-      </div>
-    </section>
-
-    <section class="cat-section" data-cat="video" id="video">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#f59e0b;">&#127916;</div>
-        <h2 class="cat-title">视频创作</h2>
-      </div>
-      <div class="tool-grid" id="grid-video"></div>
-    </section>
-
-    <section class="cat-section" data-cat="code" id="code">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#10b981;">&#128187;</div>
-        <h2 class="cat-title">编程开发</h2>
-      </div>
-      <div class="tool-grid" id="grid-code"></div>
-    </section>
-
-    <section class="cat-section" data-cat="audio" id="audio">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#8b5cf6;">&#127925;</div>
-        <h2 class="cat-title">音频处理</h2>
-      </div>
-      <div class="tool-grid" id="grid-audio"></div>
-    </section>
-
-    <section class="cat-section" data-cat="productivity" id="productivity">
-      <div class="cat-header">
-        <div class="cat-icon" style="background:#06b6d4;">&#9889;</div>
-        <h2 class="cat-title">效率工具</h2>
-      </div>
-      <div class="tool-grid" id="grid-productivity"></div>
-    </section>
-  </main>
-
-  <aside class="sidebar">
-    <div class="sidebar-ad-wrap">
-      <div class="ad ad-sidebar" onclick="alert('广告位招租 - 联系：example@email.com')">
-        &#128226; 侧边栏广告<br>300x250
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>Get the Verdict</h3>
+        <p>See where models agree (confidence), where they clash (tension), and a final risk score you can act on.</p>
       </div>
     </div>
-    <div>
-      <div class="sidebar-title">分类</div>
-      <ul class="sidebar-links" id="sidebar-links"></ul>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="section-inner">
+    <h2 class="section-title">Why It's Different</h2>
+    <p class="section-sub">Most AI tools give you one answer. Real-world decisions need a second opinion — and a third, and a fourth.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="icon">&#9878;</span>
+        <h3>Adversarial Debate</h3>
+        <p>Models don't just answer — they challenge each other. GPT-4o's optimism gets checked by Claude's risk lens. Weak arguments don't survive.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">&#128274;</span>
+        <h3>Zero Data Upload</h3>
+        <p>No sign-up. No training on your inputs. Your questions stay yours. Privacy isn't a feature — it's the default.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">&#9889;</span>
+        <h3>One-Click Multi-Query</h3>
+        <p>Instead of tab-hopping between ChatGPT, Claude, Gemini, and DeepSeek, send one question and get four perspectives instantly.</p>
+      </div>
+      <div class="why-card">
+        <span class="icon">&#127942;</span>
+        <h3>Verdict Engine</h3>
+        <p>The system scores confidence and tension, then produces a single verdict you can act on — or dig deeper into the disagreement.</p>
+      </div>
     </div>
-    <div style="margin-top:24px;">
-      <div class="sidebar-title">热门标签</div>
-      <div id="tag-cloud" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
-    </div>
-  </aside>
-</div>
+  </div>
+</section>
 
 <footer>
-  <p>AI 导航站 - 持续收录优秀 AI 工具</p>
-  <p style="margin-top:4px;">联系：example@email.com</p>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
 </footer>
 
+</div>
+
 <script>
-const tools = [
-  {cat:'chat',name:'ChatGPT',desc:'OpenAI 推出的对话式 AI 助手',url:'https://chat.openai.com',icon:'C',color:'#10a37f',badge:'freemium'},
-  {cat:'chat',name:'Claude',desc:'Anthropic 的安全对话 AI',url:'https://claude.ai',icon:'Cl',color:'#d97706',badge:'freemium'},
-  {cat:'chat',name:'Gemini',desc:'Google 的多模态 AI 助手',url:'https://gemini.google.com',icon:'G',color:'#4285f4',badge:'free'},
-  {cat:'chat',name:'DeepSeek',desc:'国产开源大模型对话平台',url:'https://chat.deepseek.com',icon:'D',color:'#4f46e5',badge:'free'},
-  {cat:'chat',name:'Kimi',desc:'月之暗面推出的长文本 AI',url:'https://kimi.moonshot.cn',icon:'K',color:'#fb7185',badge:'free'},
-  {cat:'chat',name:'豆包',desc:'字节跳动的 AI 对话助手',url:'https://www.doubao.com',icon:'豆',color:'#2563eb',badge:'free'},
-  {cat:'chat',name:'Grok',desc:'xAI 的实时对话 AI',url:'https://grok.com',icon:'G',color:'#111',badge:'freemium'},
-  {cat:'chat',name:'Perplexity',desc:'AI 搜索引擎对话工具',url:'https://www.perplexity.ai',icon:'P',color:'#1f2937',badge:'freemium'},
-  {cat:'image',name:'Midjourney',desc:'顶级 AI 图像生成工具',url:'https://www.midjourney.com',icon:'M',color:'#000',badge:'paid'},
-  {cat:'image',name:'DALL-E 3',desc:'OpenAI 的文生图模型',url:'https://openai.com/dall-e-3',icon:'D',color:'#10a37f',badge:'paid'},
-  {cat:'image',name:'Stable Diffusion',desc:'开源图像生成模型',url:'https://stability.ai',icon:'SD',color:'#7c3aed',badge:'free'},
-  {cat:'image',name:'Leonardo AI',desc:'游戏资产 AI 生成平台',url:'https://leonardo.ai',icon:'L',color:'#0ea5e9',badge:'freemium'},
-  {cat:'image',name:'通义万相',desc:'阿里巴巴的图像生成 AI',url:'https://tongyi.aliyun.com/wanxiang',icon:'通',color:'#ff6a00',badge:'free'},
-  {cat:'image',name:'文心一格',desc:'百度的 AI 艺术创作平台',url:'https://yige.baidu.com',icon:'文',color:'#2932e1',badge:'free'},
-  {cat:'video',name:'Runway',desc:'AI 视频生成与编辑',url:'https://runwayml.com',icon:'R',color:'#000',badge:'paid'},
-  {cat:'video',name:'Pika',desc:'AI 视频创意平台',url:'https://pika.art',icon:'P',color:'#f43f5e',badge:'freemium'},
-  {cat:'video',name:'Sora',desc:'OpenAI 的高质量视频生成',url:'https://openai.com/sora',icon:'S',color:'#10a37f',badge:'paid'},
-  {cat:'video',name:'剪映',desc:'字节跳动的 AI 视频剪辑工具',url:'https://jijian.bytedance.com',icon:'剪',color:'#ff4d4d',badge:'free'},
-  {cat:'video',name:'可灵',desc:'快手 AI 视频生成',url:'https://klingai.com',icon:'可',color:'#ff6b35',badge:'free'},
-  {cat:'code',name:'GitHub Copilot',desc:'AI 代码补全助手',url:'https://github.com/features/copilot',icon:'GC',color:'#24292e',badge:'paid'},
-  {cat:'code',name:'Cursor',desc:'AI 优先的代码编辑器',url:'https://cursor.sh',icon:'C',color:'#6c47ff',badge:'freemium'},
-  {cat:'code',name:'Claude Code',desc:'终端里的 AI 编程助手',url:'https://claude.ai',icon:'CC',color:'#d97706',badge:'paid'},
-  {cat:'code',name:'Windsurf',desc:'Codeium 的 AI IDE',url:'https://codeium.com/windsurf',icon:'W',color:'#0891b2',badge:'freemium'},
-  {cat:'code',name:'Replit',desc:'AI 辅助在线编程平台',url:'https://replit.com',icon:'R',color:'#f26207',badge:'freemium'},
-  {cat:'code',name:'通义灵码',desc:'阿里出品的 AI 编码助手',url:'https://tongyi.aliyun.com/lingma',icon:'灵',color:'#ff6a00',badge:'free'},
-  {cat:'audio',name:'ElevenLabs',desc:'超逼真的 AI 语音合成',url:'https://elevenlabs.io',icon:'E',color:'#111',badge:'freemium'},
-  {cat:'audio',name:'Suno',desc:'AI 音乐生成创作',url:'https://suno.com',icon:'S',color:'#8b5cf6',badge:'freemium'},
-  {cat:'audio',name:'Udio',desc:'高质量 AI 音乐生成',url:'https://udio.com',icon:'U',color:'#ec4899',badge:'freemium'},
-  {cat:'audio',name:'Whisper',desc:'OpenAI 的开源语音识别',url:'https://openai.com/research/whisper',icon:'W',color:'#10a37f',badge:'free'},
-  {cat:'audio',name:'剪映语音',desc:'字节跳动的 AI 配音工具',url:'https://jijian.bytedance.com',icon:'音',color:'#ff4d4d',badge:'free'},
-  {cat:'productivity',name:'Notion AI',desc:'AI 增强的笔记与协作',url:'https://www.notion.so/product/ai',icon:'N',color:'#000',badge:'paid'},
-  {cat:'productivity',name:'Gamma',desc:'AI 生成演示文稿',url:'https://gamma.app',icon:'G',color:'#1a1a2e',badge:'freemium'},
-  {cat:'productivity',name:'秘塔 AI',desc:'AI 搜索与知识管理',url:'https://metaso.cn',icon:'秘',color:'#2563eb',badge:'free'},
-  {cat:'productivity',name:'Napkin',desc:'AI 思维导图与可视化',url:'https://napkin.ai',icon:'N',color:'#06b6d4',badge:'freemium'},
-  {cat:'productivity',name:'Jasper',desc:'AI 营销内容创作',url:'https://www.jasper.ai',icon:'J',color:'#2563eb',badge:'paid'},
-  {cat:'productivity',name:'Grammarly',desc:'AI 写作与语法校对',url:'https://www.grammarly.com',icon:'G',color:'#15c39a',badge:'freemium'},
-  {cat:'productivity',name:'讯飞星火',desc:'科大讯飞的 AI 助手',url:'https://xinghuo.xfyun.cn',icon:'星',color:'#2563eb',badge:'free'},
-];
-
-const catNames = {chat:'对话助手',image:'图像生成',video:'视频创作',code:'编程开发',audio:'音频处理',productivity:'效率工具'};
-const badgeLabel = {free:'免费',paid:'付费',freemium:'免费+'};
-
-function renderTools(data){
-  const g={};
-  data.forEach(t=>{(g[t.cat]??=[]).push(t)});
-  document.querySelectorAll('[id^="grid-"]').forEach(grid=>{
-    const cat=grid.id.replace('grid-','');
-    const items=g[cat]||[];
-    grid.innerHTML=items.map(t=>
-      '<a class="tool-card" href="'+t.url+'" target="_blank" rel="noopener">'+
-        '<div class="tool-logo" style="background:'+t.color+';">'+t.icon+'</div>'+
-        '<div class="tool-info">'+
-          '<div class="tool-name">'+t.name+(t.badge?'<span class="tool-badge badge-'+t.badge+'">'+badgeLabel[t.badge]+'</span>':'')+'</div>'+
-          '<div class="tool-desc">'+t.desc+'</div>'+
-        '</div>'+
-      '</a>'
-    ).join('');
-  });
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
 }
-
-function renderSidebar(data){
-  const cats={};
-  data.forEach(t=>{cats[t.cat]=(cats[t.cat]||0)+1});
-  document.getElementById('sidebar-links').innerHTML=
-    Object.entries(cats).map(([k,n])=>'<li><a href="#'+k+'">'+(catNames[k]||k)+' <span class="count">'+n+'</span></a></li>').join('');
-}
-
-(function(){
-  const cloud=document.getElementById('tag-cloud');
-  ['ChatGPT','Claude','开源','免费','国产','视频生成','AI编程','语音','图像','效率'].forEach(tag=>{
-    const el=document.createElement('a');
-    el.href='#';el.textContent=tag;
-    el.style.cssText='display:inline-block;padding:4px 12px;border-radius:6px;font-size:12px;background:#f5f5f5;color:#555;text-decoration:none;transition:all .2s;';
-    el.onmouseenter=function(){this.style.background='#eee';this.style.color='#111'};
-    el.onmouseleave=function(){this.style.background='#f5f5f5';this.style.color='#555'};
-    el.onclick=function(e){e.preventDefault();document.getElementById('search').value=tag;filterTools(tag)};
-    cloud.appendChild(el);
-  });
-})();
-
-function filterTools(query){
-  const q=query.trim().toLowerCase();
-  const sections=document.querySelectorAll('.cat-section');
-  if(!q){
-    sections.forEach(s=>s.style.display='');
-    document.querySelectorAll('.tool-card').forEach(c=>c.style.display='');
-    return;
-  }
-  sections.forEach(section=>{
-    const cards=section.querySelectorAll('.tool-card');
-    let any=false;
-    cards.forEach(card=>{const m=card.textContent.toLowerCase().includes(q);card.style.display=m?'':'none';if(m)any=true});
-    section.style.display=any?'':'none';
-  });
-}
-
-renderTools(tools);
-renderSidebar(tools);
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
 </script>
+
 </body>
 </html>

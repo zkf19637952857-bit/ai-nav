@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — AI Roundtable | zhaokefei.com</title>
+<meta name="description" content="The story behind AI Roundtable — built by a Chinese truck driver who taught himself to code in his cab during breaks.">
+<meta property="og:title" content="About AI Roundtable — Built by a Truck Driver">
+<meta property="og:description" content="One man, four AI models, and a story that started in a truck cab.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/about.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/about.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="blog/">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<section class="about-hero">
+  <h1>From Truck Driver to <span>AI Builder</span></h1>
+  <p>The story of why one man built his own AI council.</p>
+</section>
+
+<div class="about-body">
+  <p>My name is Zhao Kefei. Most of my adult life, I've been behind the wheel of a truck.</p>
+
+  <p>Long-haul trucking in China means long stretches of empty highway, hours of waiting at loading docks, and a lot of time alone with your thoughts. Some drivers listen to music. Some call home. I started learning to code.</p>
+
+  <p>It wasn't glamorous. I installed a coding environment on a cheap laptop and practiced in my cab during breaks. The first few months were brutal — I'd spend hours stuck on something a CS graduate could solve in ten minutes. But trucks don't drive themselves (not yet), and I had time.</p>
+
+  <p>Over time, I built tools. First small ones — a floating prompt helper, a quick server setup script. Then bigger things — a VPN management dashboard, a complete server deployment toolkit. I wasn't writing elegant code, but I was writing code that worked.</p>
+
+  <p>Then AI happened.</p>
+
+  <p>I started using ChatGPT, Claude, Gemini, DeepSeek — whatever I could get my hands on. What struck me wasn't how smart these models were. It was how different they were. Ask the same question to four different AIs and you'd get four different answers, each confident, each convinced it was right.</p>
+
+  <p>That's when the idea hit me: if one AI can be wrong, but asking four costs the same as asking one — why would you ever ask just one?</p>
+
+  <p><span class="highlight">AI Roundtable was born in a truck cab.</span> The idea that decisions — especially important ones — should be stress-tested by multiple perspectives. Not because any single model is bad, but because every single model has blind spots. Including us.</p>
+
+  <p>I built the first version for myself. A tool that sends a question to four models at once, then shows where they agree and where they fight. It was supposed to be a personal assistant for my own choices. Then I realized: everyone needs this.</p>
+
+  <p>So I cleaned it up, gave it a dark neon theme (truck drivers like things that glow), and put it online.</p>
+
+  <div class="about-signoff">
+    <p>No investors. No AI credentials. No bullshit.</p>
+    <p class="sig">— Zhao Kefei</p>
+  </div>
+</div>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>
