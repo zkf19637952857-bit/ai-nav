@@ -211,19 +211,34 @@ footer .footer-name{color:#8892a4;font-weight:600}
 @media(max-width:768px){
   .steps{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
-  .stats-row{gap:24px}
-  .hero h1{font-size:36px}
-  .nav-links a{padding:6px 12px;font-size:12px}
+  .stats-row{gap:24px;margin-bottom:60px}
+  .hero h1{font-size:clamp(36px,6vw,56px)}
+  .nav-links a{padding:10px 14px;font-size:13px}
   section{padding:60px 20px}
   .hero{padding:80px 20px 40px;min-height:auto}
-  .model-pills{gap:8px}
-  .model-pill{font-size:12px;padding:6px 14px}
+  .model-pills{gap:8px;margin-bottom:40px}
+  .model-pill{font-size:13px;padding:8px 14px}
   .article-wrap{padding:32px 20px 60px}
+  .hero-img-wrap{margin:36px auto}
 }
 @media(max-width:480px){
-  .hero h1{font-size:28px}
+  .hero h1{font-size:clamp(32px,10vw,48px);letter-spacing:-1px}
+  .hero-tagline{font-size:20px}
+  .hero-sub{font-size:14px;margin-bottom:28px}
+  .hero-badge{font-size:10px;padding:5px 14px;margin-bottom:24px;letter-spacing:1.5px}
   .stat-num{font-size:24px}
-  .stats-row{gap:16px}
+  .stat-label{font-size:11px}
+  .stats-row{gap:14px;margin-bottom:48px}
   .blog-card{padding:24px 20px}
   .blog-card h2{font-size:18px}
+  .nav-links a{padding:10px 12px;font-size:13px}
+  .nav-logo{font-size:16px}
+  nav{padding:0 16px}
+  .model-pills{margin-bottom:28px;gap:8px}
+  .model-pill{font-size:13px;padding:8px 14px}
+  .hero-img-wrap{margin:28px auto;width:90%}
+  .hero{padding:72px 16px 40px;min-height:auto}
+  section{padding:48px 16px}
+  .section-title{font-size:26px}
+  .section-sub{font-size:15px}
 }
