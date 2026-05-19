@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why Trusting One AI Is Like Asking One Doctor | AI Roundtable</title>
+<meta name="description" content="A lawyer cited fake cases invented by ChatGPT. Air Canada's chatbot made up a refund policy. When the stakes are real, one AI opinion is never enough.">
+<meta property="og:title" content="Why Trusting One AI Is Like Asking One Doctor">
+<meta property="og:description" content="Two real disasters. One pattern: a single AI gave confident, specific, wrong information — and someone acted on it. Here's why cross-validation isn't optional.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/trusting-one-ai.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/trusting-one-ai.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>Why Trusting One AI Is Like Asking One Doctor</h1>
+  <div class="meta">May 20, 2026 &middot; 7 min read</div>
+
+  <p>In 2023, a New York lawyer named Steven Schwartz submitted a legal brief that cited six court cases in support of his argument. The opposing counsel couldn't find any of them. Neither could the judge.</p>
+
+  <p>They didn't exist. Schwartz had used ChatGPT to research case law. ChatGPT had invented the citations — complete with case names, docket numbers, and plausible-sounding legal reasoning. Schwartz hadn't checked.</p>
+
+  <p>The judge fined him $5,000. He faced disciplinary proceedings. The case became one of the most widely reported AI failures of the year.</p>
+
+  <h2>The Same Year, Air Canada's Chatbot Cost the Airline Money in Court</h2>
+
+  <p>A passenger named Jake Moffatt contacted Air Canada's AI chatbot after his grandmother died. He wanted to know if he could get a bereavement fare discount retroactively. The chatbot told him yes — he had 90 days after travel to apply.</p>
+
+  <p>That was wrong. Air Canada's actual policy required the discount to be arranged before travel. When Moffatt applied for the refund, the airline refused.</p>
+
+  <p>He sued. The British Columbia Civil Resolution Tribunal ruled in his favor. Air Canada had to pay $812 CAD in damages and fees. The airline had tried to argue the chatbot was "a separate legal entity" responsible for its own statements. The tribunal rejected this.</p>
+
+  <p>Two very different situations. One pattern: <strong>a single AI source gave confident, specific, wrong information — and someone acted on it.</strong></p>
+
+  <h2>Why Single AI Sources Fail</h2>
+
+  <p>AI models are not databases. They don't retrieve facts — they generate text that sounds like facts. The distinction matters enormously when the stakes are real.</p>
+
+  <p>Every model has blind spots shaped by its training data, its architecture, and the way it was fine-tuned. Claude tends toward caution. GPT-4o tends toward synthesis. Gemini challenges assumptions. DeepSeek prioritizes execution. None of them is wrong exactly — they're optimized differently.</p>
+
+  <p>When you ask one AI a question, you get one optimization. When that optimization happens to match a blind spot, you get a confident wrong answer.</p>
+
+  <p>The lawyer got a confident wrong answer about case law. The airline's chatbot gave a confident wrong answer about policy. In both cases, nobody checked.</p>
+
+  <h2>What Cross-Validation Actually Does</h2>
+
+  <p>If Schwartz had run his case law research through four models simultaneously, at least one of them would likely have flagged that the citations couldn't be verified. The disagreement itself would have been a signal to dig deeper.</p>
+
+  <p>This is the core logic behind AI Roundtable. Not that four AIs are always right — they're not. But when three models agree and one doesn't, that disagreement is information. It tells you something worth investigating before you act.</p>
+
+  <p>A single confident answer is easy to trust. Four answers with visible disagreement forces you to think.</p>
+
+  <h2>The Doctor Analogy</h2>
+
+  <p>If your doctor told you that you needed surgery, most people would get a second opinion before going under the knife. Not because they distrust their doctor — but because the stakes are high enough that one perspective isn't enough.</p>
+
+  <p>AI is no different. The tool is powerful. The confidence it projects is real. But <strong>confidence is not accuracy,</strong> and a single source — however sophisticated — is still a single source.</p>
+
+  <p>The Samsung engineers trusted one tool. The lawyer trusted one source. The airline trusted one chatbot.</p>
+
+  <div class="callout">
+    <strong>Cross-validation isn't paranoia.</strong> It's what you do when the answer actually matters.
+  </div>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

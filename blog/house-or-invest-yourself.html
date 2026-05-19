@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I Asked 4 AIs: "Should I Buy a House or Invest in Myself?" They Couldn't Even Agree on the Question. | AI Roundtable</title>
+<meta name="description" content="I had $0 in savings. I asked four AI models whether to buy a house or invest in myself. Three of them told me I was asking the wrong question entirely.">
+<meta property="og:title" content="I Asked 4 AIs: 'Should I Buy a House or Invest in Myself?' They Couldn't Even Agree on the Question.">
+<meta property="og:description" content="Four AI models, one financial dilemma, zero consensus. The disagreement was more useful than any answer.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/house-or-invest-yourself.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/house-or-invest-yourself.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>I Asked 4 AIs: "Should I Buy a House or Invest in Myself?" They Couldn't Even Agree on the Question.</h1>
+  <div class="meta">May 19, 2026 &middot; 7 min read</div>
+
+  <p>I had $0 in savings. I asked AI Roundtable one question: buy a house or invest in myself?</p>
+
+  <p>I expected financial advice. Instead, three out of four AIs told me I was asking the wrong question entirely.</p>
+
+  <h2>Claude: You Haven't Defined the Problem Yet</h2>
+
+  <p>Claude refused to answer the question directly — not because it was being difficult, but because it pointed out that the single variable I gave (zero savings) tells you almost nothing. It wanted to know: monthly income, city, age, what "invest in myself" actually means, existing debt, income growth potential.</p>
+
+  <p>Without those, Claude said, any answer is essentially random. You're not choosing between two paths — you're choosing between two undefined directions.</p>
+
+  <p>Its most useful line: <strong>"The decision you make will be right for someone. The question is whether it's right for you — and right now, nobody knows, including you."</strong></p>
+
+  <p><strong>Verdict:</strong> Unknown. Define the problem before attempting to solve it.</p>
+
+  <h2>Gemini: Stop Thinking in Binary</h2>
+
+  <p>Gemini challenged the frame of the question itself. Buying a house and investing in yourself aren't necessarily opposites — investing in yourself raises your income, which eventually makes buying a house easier. Buying a house creates stability, which can free up mental space to grow.</p>
+
+  <p>It also called out the vagueness of "0K savings" — is that zero, or is it shorthand for some amount? The answer changes everything.</p>
+
+  <p>Gemini's core point: this isn't a multiple choice question. It's an optimization problem that requires knowing your actual situation first.</p>
+
+  <p><strong>Verdict:</strong> The question itself is the problem. This isn't A or B.</p>
+
+  <h2>DeepSeek: You Can't Afford the House. Invest in Yourself. Move On.</h2>
+
+  <p>DeepSeek was the only one willing to give a direct answer — and it didn't waste words. If your savings can't cover a down payment, the housing option doesn't exist in any practical sense. Forcing it means being crushed by monthly payments.</p>
+
+  <p>Its execution path was specific: build a 3-month emergency fund first, pick one skill that has a clear market, learn it, produce one piece of work, use that to get a higher-paying job or freelance income. Then revisit housing.</p>
+
+  <p>The bluntest version: <strong>"You don't have enough to buy a house. Go learn something that makes you more money. That's the only path forward."</strong></p>
+
+  <p><strong>Verdict:</strong> Invest in yourself. It's the only option that actually exists right now.</p>
+
+  <h2>GPT-4o: Unknown. Come Back With More Information.</h2>
+
+  <p>GPT-4o synthesized all three and landed on a verdict of UNKNOWN — not a cop-out, but an honest assessment that the question as asked can't be answered responsibly. It agreed with DeepSeek that building an emergency fund comes first, agreed with Claude that you need to map your actual financial situation, and agreed with Gemini that the binary framing is the real problem.</p>
+
+  <p>Its final line: <strong>"You're not choosing between two options. You're choosing between two directions without a map."</strong></p>
+
+  <p><strong>Verdict:</strong> UNKNOWN. Get the map first.</p>
+
+  <h2>What Four AIs Actually Taught Me</h2>
+
+  <p>The disagreement here is more useful than any single answer would have been.</p>
+
+  <p>Claude saw a <strong>measurement problem</strong> — I hadn't defined the variables. Gemini saw a <strong>framing problem</strong> — I'd forced a false binary. DeepSeek saw an <strong>execution problem</strong> — I didn't have the resources for one of the options. GPT-4o saw an <strong>information problem</strong> — I needed more data before any answer could be responsible.</p>
+
+  <p>If I'd only asked one AI, I'd have gotten one of those four lenses — and probably acted on incomplete reasoning. Getting all four forced me to slow down and realize the real first step: <strong>figure out what I actually have before deciding what to do with it.</strong></p>
+
+  <p>That's not a sexy answer. But it's the right one.</p>
+
+  <div class="callout">
+    <strong>The takeaway:</strong> When four different AI models can't agree on your question, the question might be the problem — not the answers. Cross-validation doesn't just give you a better answer. Sometimes it shows you that you're asking the wrong thing entirely.
+  </div>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>

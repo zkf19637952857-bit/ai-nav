@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your AI Conversations Are Not Private. Samsung Found Out the Hard Way. | AI Roundtable</title>
+<meta name="description" content="When Samsung engineers used ChatGPT to debug semiconductor code, they accidentally leaked trade secrets into a public training dataset. The lesson isn't 'don't use AI' — it's 'know where your data goes'.">
+<meta property="og:title" content="Your AI Conversations Are Not Private. Samsung Found Out the Hard Way.">
+<meta property="og:description" content="Three Samsung engineers. One chatbot. Trade secrets absorbed into a public AI model. Here's what actually happened — and how to protect yourself.">
+<meta property="og:image" content="https://zhaokefei.com/369.jpeg">
+<meta property="og:url" content="https://zhaokefei.com/blog/samsung-data-leak.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://zhaokefei.com/blog/samsung-data-leak.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="page-wrap">
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span>AI</span> Roundtable</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../blog/" class="active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article-wrap">
+  <a href="../blog/" class="back">&larr; Back to Blog</a>
+  <h1>Your AI Conversations Are Not Private. Samsung Found Out the Hard Way.</h1>
+  <div class="meta">May 19, 2026 &middot; 6 min read</div>
+
+  <p>In March 2023, Samsung gave its semiconductor engineers access to ChatGPT to help with their work. Within weeks, three separate employees had accidentally leaked confidential company data — source code, internal meeting recordings, and proprietary chip testing sequences — directly into the chatbot.</p>
+
+  <p>The data didn't disappear. ChatGPT uses input to train its models. Samsung's trade secrets were now part of OpenAI's dataset.</p>
+
+  <p>Samsung responded by banning ChatGPT internally and limiting future AI prompts to 1024 bytes. The damage was already done.</p>
+
+  <p>This wasn't carelessness. These were senior engineers doing exactly what they were supposed to do — using AI to work faster. The problem was structural: they assumed the conversation was private. It wasn't.</p>
+
+  <h2>What "Private" Actually Means — and Doesn't Mean</h2>
+
+  <p>When you type something into a cloud-based AI, that text leaves your device. It travels to a server. It gets processed. In most cases, it gets stored. In many cases, it gets used for training.</p>
+
+  <p>This is not a scandal. It's just how the technology works. The problem is that most people don't think about it in the moment — especially when they're trying to solve a problem quickly.</p>
+
+  <p>The Samsung engineers weren't thinking "I am now transmitting proprietary semiconductor data to a third-party server." They were thinking "how do I fix this bug."</p>
+
+  <p><strong>That gap between what's happening technically and what feels like it's happening is where data leaks live.</strong></p>
+
+  <h2>This Is Not a Samsung Problem</h2>
+
+  <p>Cybersecurity firm Cyberhaven studied this after the Samsung incident. They found that 3.1% of employees who used AI at work had submitted confidential company data into the system. For a company with 100,000 employees, that's hundreds of incidents per week — most of them never discovered.</p>
+
+  <p>Amazon warned employees. Walmart issued a memo. JPMorgan Chase and Verizon blocked ChatGPT entirely for staff.</p>
+
+  <p>The pattern is the same everywhere: AI is useful, people use it for real work, real work involves sensitive information, sensitive information leaves the building.</p>
+
+  <h2>What Local Execution Actually Means</h2>
+
+  <p>"Local" means the AI runs on your machine. Your input never leaves your device. There's no server receiving your data, no third party processing it, no training dataset absorbing it.</p>
+
+  <p>This matters for two kinds of people: individuals who handle sensitive personal or financial information, and anyone working on something they'd rather not share with the world before they're ready.</p>
+
+  <p>AI Roundtable's desktop version runs locally. Your questions go to the AI models via API — the responses come back — but nothing is stored on external servers beyond what the API itself handles. Your session data stays on your machine.</p>
+
+  <p>It's not a perfect solution for every situation. But if you're making decisions about money, business strategy, or anything genuinely private, knowing where your data goes is not paranoia. It's basic hygiene.</p>
+
+  <h2>The Samsung Lesson</h2>
+
+  <p>The engineers who caused the leak weren't doing anything wrong by the standards they were operating under. They were using a tool to do their jobs better.</p>
+
+  <p>The lesson isn't "don't use AI." It's <strong>"know what you're using before you use it for something that matters."</strong></p>
+
+  <div class="callout">
+    <strong>One question worth asking before your next AI conversation:</strong> if this prompt showed up in a training dataset six months from now, would that be a problem? If the answer is yes — think about where you're sending it.
+  </div>
+
+</article>
+
+<footer>
+  <p><span class="footer-name">zhaokefei.com</span> &middot; Built by a truck driver who refused to stop learning.</p>
+</footer>
+
+</div>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let particles=[],w,h;
+function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight}
+addEventListener('resize',resize);resize();
+const colors=['#00f5ff','#ffd700','#00ff9d','#bf5fff'];
+class Particle{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=Math.random()*2+1;this.speedX=(Math.random()-.5)*.4;this.speedY=(Math.random()-.5)*.4;this.color=colors[Math.floor(Math.random()*colors.length)];this.alpha=Math.random()*.5+.15}
+  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w||this.y<0||this.y>h)this.reset()}
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=this.color;ctx.globalAlpha=this.alpha;ctx.fill()}
+}
+for(let i=0;i<70;i++)particles.push(new Particle);
+function drawLines(){for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){const dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);if(dist<150){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle=particles[i].color;ctx.globalAlpha=(1-dist/150)*.12;ctx.lineWidth=.5;ctx.stroke()}}}}
+function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.draw()});drawLines();requestAnimationFrame(animate)}
+animate();
+</script>
+
+</body>
+</html>
