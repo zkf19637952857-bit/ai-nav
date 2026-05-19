@@ -202,6 +202,20 @@ footer .footer-name{color:#8892a4;font-weight:600}
 .article-wrap hr{border:none;border-top:1px solid #1a1f2e;margin:40px 0}
 .article-wrap .source-ref{font-size:13px;color:#4a5268;font-style:italic;display:block;margin-top:6px}
 
+/* ===== Share & Like Buttons ===== */
+.article-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:48px;padding-top:32px;border-top:1px solid #1a1f2e}
+.share-buttons{display:flex;gap:8px;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;border:1px solid #1a1f2e;background:transparent;color:#8892a4;font-family:inherit}
+.share-btn:hover{border-color:#00f5ff33;color:#00f5ff;background:#00f5ff08}
+.share-btn.copied{border-color:#00ff9d33;color:#00ff9d;background:#00ff9d08}
+.share-icon{font-size:14px}
+.like-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;border:1px solid #1a1f2e;background:transparent;color:#8892a4;font-family:inherit;margin-left:auto}
+.like-btn:hover{border-color:#bf5fff33;color:#bf5fff;background:#bf5fff08}
+.like-btn.liked{border-color:#bf5fff44;color:#bf5fff;background:#bf5fff12}
+.like-btn.liked .like-icon{color:#bf5fff}
+.comments-section{margin-top:48px;padding-top:32px;border-top:1px solid #1a1f2e}
+.comments-section h3{font-size:18px;font-weight:700;color:#fff;margin-bottom:24px}
+
 /* ===== 404 ===== */
 .page-404{text-align:center;padding:120px 24px}
 .page-404 h1{font-size:80px;font-weight:900;color:#1a1f2e;margin-bottom:8px}

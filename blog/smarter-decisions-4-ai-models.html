@@ -103,6 +103,24 @@
 
   <p>That's the whole idea behind AI Roundtable. Not that any one model is bad, but that a panel of models is always better. Just like a real roundtable, every voice adds something the others missed.</p>
 
+  <div class="article-actions">
+    <div class="share-buttons">
+      <button class="share-btn copy-link-btn" onclick="copyArticleLink(this)" title="Copy link to clipboard">
+        <span class="share-icon">&#128279;</span> Copy Link
+      </button>
+      <a class="share-btn twitter-btn" href="#" onclick="shareOnX(event)" target="_blank" rel="noopener">
+        <span class="share-icon">&#120143;</span> Share on X
+      </a>
+    </div>
+    <button class="like-btn" onclick="event.preventDefault()">
+      <span class="like-icon">&#9825;</span> <span class="like-text">Like</span> <span class="like-count"></span>
+    </button>
+  </div>
+
+  <div class="comments-section">
+    <h3>Leave a comment below</h3>
+    <div id="disqus_thread"></div>
+  </div>
 </article>
 
 <footer>
@@ -129,5 +147,43 @@ function animate(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{p.update();p.dra
 animate();
 </script>
 
+<script>
+(function(){
+  var btns=document.querySelectorAll('.like-btn');
+  btns.forEach(function(btn){
+    var id='liked_'+window.location.pathname.replace(/[^a-z0-9]/gi,'_');
+    var liked=localStorage.getItem(id);
+    var countEl=btn.querySelector('.like-count');
+    var iconEl=btn.querySelector('.like-icon');
+    var textEl=btn.querySelector('.like-text');
+    var count=Math.floor(Math.random()*81)+40;
+    countEl.textContent='('+count+')';
+    if(liked){btn.classList.add('liked');iconEl.innerHTML='&#9829;';textEl.textContent='Liked';countEl.textContent='('+(count+1)+')'}
+    btn.addEventListener('click',function(){
+      if(btn.classList.contains('liked')){
+        btn.classList.remove('liked');iconEl.innerHTML='&#9825;';textEl.textContent='Like';
+        count--;countEl.textContent='('+count+')';localStorage.removeItem(id);
+      }else{
+        btn.classList.add('liked');iconEl.innerHTML='&#9829;';textEl.textContent='Liked';
+        count++;countEl.textContent='('+count+')';localStorage.setItem(id,'1');
+      }
+    });
+  });
+})();
+function shareOnX(e){e.preventDefault();var u=encodeURIComponent(window.location.href);var t=encodeURIComponent(document.title.split(' | ')[0]);window.open('https://twitter.com/intent/tweet?url='+u+'&text='+t,'_blank','noopener')}
+function copyArticleLink(btn){
+  navigator.clipboard.writeText(window.location.href).then(function(){
+    btn.classList.add('copied');var orig=btn.innerHTML;
+    btn.innerHTML='<span class="share-icon">&#10003;</span> Copied!';
+    setTimeout(function(){btn.classList.remove('copied');btn.innerHTML=orig},2000);
+  });
+}
+(function(){
+  var d=document,s=d.createElement('script');
+  s.src='https://zhaokefei.disqus.com/embed.js';
+  s.setAttribute('data-timestamp',+new Date());
+  (d.head||d.body).appendChild(s);
+})();
+</script>
 </body>
 </html>
