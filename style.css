@@ -65,15 +65,15 @@ section{padding:10px 24px}
   color:#00f5ff;border:1px solid #00f5ff33;border-radius:100px;
   padding:6px 18px;margin-bottom:10px;text-transform:uppercase;
 }
-.hero h1{font-size:clamp(44px,8vw,90px);font-weight:900;line-height:1.05;margin-bottom:10px;letter-spacing:-2px}
+.hero h1{font-size:clamp(44px,8vw,90px);font-weight:900;line-height:1.05;margin-bottom:4px;letter-spacing:-2px}
 .hero h1 .c1{color:#00f5ff;text-shadow:0 0 40px #00f5ff33}
 .hero h1 .c2{color:#fff}
 .hero h1 .c3{color:#ffd700;text-shadow:0 0 40px #ffd70033}
 .hero-tagline{font-size:clamp(18px,2.5vw,28px);font-weight:600;color:#fff;margin-bottom:10px}
-.hero-sub{font-size:clamp(14px,1.3vw,17px);color:#6b7a8f;max-width:600px;margin:0 auto 40px}
+.hero-sub{font-size:clamp(14px,1.3vw,17px);color:#6b7a8f;max-width:600px;margin:0 auto}
 
 /* ===== Hero Image ===== */
-.hero-img-wrap{position:relative;width:80%;max-width:860px;margin:48px auto}
+.hero-img-wrap{position:relative;width:80%;max-width:860px;margin:0 auto}
 .hero-img-wrap img{width:100%;display:block;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,#000 60%,transparent 100%)}
 
 /* ===== Model Pills ===== */
@@ -261,17 +261,17 @@ footer .footer-name{color:#8892a4;font-weight:600}
   .hero h1{font-size:clamp(36px,6vw,56px)}
   .nav-links a{padding:10px 14px;font-size:13px}
   section{padding:40px 20px}
-  .hero{padding:30px 20px 10px;min-height:auto}
+  .hero{padding:30px 20px 0;min-height:auto}
   .model-pills{gap:8px;margin-bottom:0}
   .model-pill{font-size:13px;padding:8px 14px}
   .article-wrap{padding:20px 20px 10px}
-  .hero-img-wrap{margin:36px auto}
+  .hero-img-wrap{margin:0 auto}
   .tools-grid{grid-template-columns:1fr;max-width:540px;margin-left:auto;margin-right:auto}
 }
 @media(max-width:480px){
   .hero h1{font-size:clamp(32px,10vw,48px);letter-spacing:-1px}
   .hero-tagline{font-size:20px}
-  .hero-sub{font-size:14px;margin-bottom:28px}
+  .hero-sub{font-size:14px;margin-bottom:0}
   .hero-badge{font-size:10px;padding:5px 14px;margin-bottom:10px;letter-spacing:1.5px}
   .stat-num{font-size:24px}
   .stat-label{font-size:11px}
@@ -283,8 +283,8 @@ footer .footer-name{color:#8892a4;font-weight:600}
   nav{padding:0 16px}
   .model-pills{margin-bottom:0;gap:8px}
   .model-pill{font-size:13px;padding:8px 14px}
-  .hero-img-wrap{margin:28px auto;width:90%}
-  .hero{padding:30px 16px 10px;min-height:auto}
+  .hero-img-wrap{margin:0 auto;width:90%}
+  .hero{padding:30px 16px 0;min-height:auto}
   section{padding:48px 16px}
   .section-title{font-size:26px}
   .section-sub{font-size:15px}
