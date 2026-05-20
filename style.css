@@ -290,3 +290,11 @@ footer .footer-name{color:#555;font-weight:600}
   .tool-card{padding:24px 20px}
   .tool-card h3{font-size:20px}
 }
+.tools-page-hero{text-align:center;padding:60px 24px 20px}
+.tools-page-hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;color:#111}
+.tools-page-hero p{font-size:18px;color:#666;max-width:600px;margin:10px auto 0}
+.tools-page-grid{padding:20px 24px 60px}
+.tools-page-grid .section-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px}
+.tool-card-add{border:2px dashed #ddd;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:280px;opacity:.5;cursor:default}
+.tool-card-add .tool-card-icon{font-size:48px;color:#ccc}
+.tool-card-add h3{color:#999 !important}
