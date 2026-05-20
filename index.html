@@ -60,8 +60,19 @@
 
 </section>
 
-<section class="orbit-section">
-  <div id="orbit-container"></div>
+<section class="poster-section">
+  <div class="scene">
+    <div class="poster-container" id="poster">
+      <div class="poster-face poster-front">
+        <img src="img/微信图片_20260520184307_477_3.jpg" alt="AI Roundtable" id="posterImg" />
+      </div>
+      <div class="poster-face poster-back">
+        <h2>AI Roundtable</h2>
+        <p>Four AI Models. One Question.<br>No Blind Spots.</p>
+      </div>
+    </div>
+    <div class="reflection"></div>
+  </div>
 </section>
 
 <section class="tools-section">
@@ -187,92 +198,6 @@ animate();
 function toggleMute(){const v=document.getElementById('demo-video');const b=document.querySelector('.video-mute-btn');v.muted=!v.muted;b.innerHTML=v.muted?'&#128264;':'&#128266;'}
 </script>
 
-<script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-
-const container=document.getElementById('orbit-container');
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(60,container.clientWidth/750,0.1,1000);
-camera.position.set(0,2,14);
-const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
-renderer.setSize(container.clientWidth,750);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-container.appendChild(renderer.domElement);
-
-const light=new THREE.AmbientLight(0x404060,3);
-scene.add(light);
-const dLight=new THREE.DirectionalLight(0x00f5ff,2);
-dLight.position.set(5,5,5);
-scene.add(dLight);
-
-const geo=new THREE.SphereGeometry(0.35,32,32);
-const mat=new THREE.MeshStandardMaterial({color:0x00f5ff,emissive:0x002244,roughness:0.3,metalness:0.7});
-const globe=new THREE.Mesh(geo,mat);
-scene.add(globe);
-
-const ringGeo=new THREE.TorusGeometry(0.65,0.02,16,100);
-const ringMat=new THREE.MeshBasicMaterial({color:0x00f5ff,transparent:true,opacity:0.4});
-const ring=new THREE.Mesh(ringGeo,ringMat);
-ring.rotation.x=Math.PI/2;
-scene.add(ring);
-
-const ring2=new THREE.Mesh(new THREE.TorusGeometry(0.8,0.015,16,100),new THREE.MeshBasicMaterial({color:0xbf5fff,transparent:true,opacity:0.3}));
-ring2.rotation.x=Math.PI/3;
-scene.add(ring2);
-
-const textureLoader=new THREE.TextureLoader();
-const images=['img/微信图片_20260520184307_477_3.jpg','img/微信图片_20260520184308_478_3.jpg','img/微信图片_20260520184309_479_3.jpg','img/微信图片_20260520184309_480_3.jpg','img/微信图片_20260520184310_481_3.jpg','img/微信图片_20260520184311_482_3.jpg','img/微信图片_20260520184312_483_3.jpg','img/微信图片_20260520184313_484_3.jpg','img/微信图片_20260520184314_485_3.jpg','img/微信图片_20260520184315_486_3.jpg','img/微信图片_20260520184316_487_3.jpg','img/微信图片_20260520184317_488_3.jpg','img/微信图片_20260520184318_489_3.jpg'];
-const cards=[];
-images.forEach((src,i)=>{
-  const tex=textureLoader.load(src);
-  const cardGeo=new THREE.PlaneGeometry(2.5,1.8);
-  const cardMat=new THREE.MeshStandardMaterial({map:tex,side:THREE.DoubleSide,roughness:0.4});
-  const card=new THREE.Mesh(cardGeo,cardMat);
-  const angle=(i/images.length)*Math.PI*2;
-  const radius=5.5+Math.random()*1.2;
-  card.userData={angle,radius,speed:0.3+Math.random()*0.4,tilt:(Math.random()-0.5)*0.4,yOffset:(Math.random()-0.5)*0.6};
-  card.position.set(Math.cos(angle)*radius,card.userData.yOffset,Math.sin(angle)*radius);
-  card.lookAt(0,card.userData.yOffset,0);
-  scene.add(card);
-  cards.push(card);
-});
-
-const starsGeo=new THREE.BufferGeometry();
-const starsCount=400;
-const starsPos=new Float32Array(starsCount*3);
-for(let i=0;i<starsCount*3;i++)starsPos[i]=(Math.random()-0.5)*20;
-starsGeo.setAttribute('position',new THREE.BufferAttribute(starsPos,3));
-const starsMat=new THREE.PointsMaterial({color:0xffffff,size:0.02});
-const stars=new THREE.Points(starsGeo,starsMat);
-scene.add(stars);
-
-function animate(t){
-  requestAnimationFrame(animate);
-  globe.rotation.y+=0.003;
-  ring.rotation.z+=0.002;
-  ring2.rotation.z-=0.003;
-  stars.rotation.y+=0.0003;
-  cards.forEach(c=>{
-    c.userData.angle+=c.userData.speed*0.003;
-    const a=c.userData.angle;
-    const r=c.userData.radius;
-    c.position.set(Math.cos(a)*r,c.userData.yOffset+Math.sin(t*0.0003)*0.15,Math.sin(a)*r);
-    c.lookAt(0,c.userData.yOffset,0);
-  });
-  renderer.render(scene,camera);
-}
-animate(0);
-
-window.addEventListener('resize',()=>{
-  const w=container.clientWidth;
-  camera.aspect=w/750;
-  camera.updateProjectionMatrix();
-  renderer.setSize(w,750);
-});
-</script>
 
 </body>
 </html>
