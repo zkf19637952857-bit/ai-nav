@@ -60,19 +60,8 @@
 
 </section>
 
-<section class="poster-section">
-  <div class="scene">
-    <div class="poster-container" id="poster">
-      <div class="poster-face poster-front">
-        <img src="img/微信图片_20260520184307_477_3.jpg" alt="AI Roundtable" id="posterImg" />
-      </div>
-      <div class="poster-face poster-back">
-        <h2>AI Roundtable</h2>
-        <p>Four AI Models. One Question.<br>No Blind Spots.</p>
-      </div>
-    </div>
-    <div class="reflection"></div>
-  </div>
+<section class="orbit-section">
+  <div id="orbit-container"></div>
 </section>
 
 <section class="tools-section">
@@ -198,6 +187,50 @@ animate();
 function toggleMute(){const v=document.getElementById('demo-video');const b=document.querySelector('.video-mute-btn');v.muted=!v.muted;b.innerHTML=v.muted?'&#128264;':'&#128266;'}
 </script>
 
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+const c=document.getElementById('orbit-container');
+const H=800;
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(55,c.clientWidth/H,0.1,100);
+camera.position.set(0,2,18);
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setSize(c.clientWidth,H);
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+c.appendChild(renderer.domElement);
+scene.add(new THREE.AmbientLight(0x404060,3));
+const d=new THREE.DirectionalLight(0x00f5ff,2);d.position.set(5,5,5);scene.add(d);
+const globe=new THREE.Mesh(new THREE.SphereGeometry(0.4,32,32),new THREE.MeshStandardMaterial({color:0x00f5ff,emissive:0x002244,roughness:0.3,metalness:0.7}));scene.add(globe);
+const r1=new THREE.Mesh(new THREE.TorusGeometry(0.7,0.02,16,100),new THREE.MeshBasicMaterial({color:0x00f5ff,transparent:true,opacity:0.4}));r1.rotation.x=Math.PI/2;scene.add(r1);
+const r2=new THREE.Mesh(new THREE.TorusGeometry(0.9,0.015,16,100),new THREE.MeshBasicMaterial({color:0xbf5fff,transparent:true,opacity:0.3}));r2.rotation.x=Math.PI/3;scene.add(r2);
+const ld=new THREE.TextureLoader();
+const imgs=['img/微信图片_20260520184307_477_3.jpg','img/微信图片_20260520184308_478_3.jpg','img/微信图片_20260520184309_479_3.jpg','img/微信图片_20260520184309_480_3.jpg','img/微信图片_20260520184310_481_3.jpg','img/微信图片_20260520184311_482_3.jpg','img/微信图片_20260520184312_483_3.jpg','img/微信图片_20260520184313_484_3.jpg','img/微信图片_20260520184314_485_3.jpg','img/微信图片_20260520184315_486_3.jpg','img/微信图片_20260520184316_487_3.jpg','img/微信图片_20260520184317_488_3.jpg','img/微信图片_20260520184318_489_3.jpg'];
+const cards=[];
+imgs.forEach((src,i)=>{
+  const t=ld.load(src);
+  const m=new THREE.Mesh(new THREE.PlaneGeometry(3.5,2.5),new THREE.MeshStandardMaterial({map:t,side:THREE.DoubleSide,roughness:0.4}));
+  const a=(i/imgs.length)*Math.PI*2,rad=7+Math.random()*1.5;
+  m.userData={angle:a,radius:rad,speed:0.3+Math.random()*0.4,yo:(Math.random()-.5)*1.2};
+  m.position.set(Math.cos(a)*rad,m.userData.yo,Math.sin(a)*rad);
+  m.lookAt(0,m.userData.yo,0);
+  scene.add(m);cards.push(m);
+});
+const sg=new THREE.BufferGeometry(),sp=new Float32Array(600*3);
+for(let i=0;i<600*3;i++)sp[i]=(Math.random()-.5)*30;
+sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+const st=new THREE.Points(sg,new THREE.PointsMaterial({color:0xffffff,size:0.025}));scene.add(st);
+function anim(t){
+  requestAnimationFrame(anim);
+  globe.rotation.y+=0.003;r1.rotation.z+=0.002;r2.rotation.z-=0.003;
+  cards.forEach(m=>{m.userData.angle+=m.userData.speed*0.003;const a=m.userData.angle;m.position.set(Math.cos(a)*m.userData.radius,m.userData.yo+Math.sin(t*0.0003)*0.2,Math.sin(a)*m.userData.radius);m.lookAt(0,m.userData.yo,0)});
+  renderer.render(scene,camera);
+}
+anim(0);
+addEventListener('resize',()=>{const w=c.clientWidth;camera.aspect=w/H;camera.updateProjectionMatrix();renderer.setSize(w,H)});
+</script>
 
 </body>
 </html>
