@@ -224,8 +224,19 @@ footer .footer-name{color:#555;font-weight:600}
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:10px;margin-top:10px;text-align:left}
 .tool-card{background:#f8f8f8;border:1px solid #ddd;border-radius:16px;padding:32px 28px;transition:all .3s;position:relative}
 .tool-card:hover{border-color:#00f5ff22;transform:translateY(-2px)}
-.tool-card.featured{border-color:#00f5ff22;background:linear-gradient(135deg,#f8f8f8 0%,#0a1020 100%)}
+.tool-card.featured{border-color:rgba(34,211,238,.35);background:linear-gradient(135deg,#07111f 0%,#111827 55%,#020617 100%);box-shadow:0 20px 60px rgba(15,23,42,.45)}
 .tool-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00f5ff,#bf5fff,#ffd700,#00ff9d);border-radius:16px 16px 0 0}
+.tool-card.featured:hover{border-color:rgba(34,211,238,.5);transform:translateY(-3px);box-shadow:0 25px 70px rgba(15,23,42,.55)}
+.tool-card.featured .tool-card-badge{color:#22d3ee;border-color:rgba(34,211,238,.4)}
+.tool-card.featured .tool-card-icon{color:#22d3ee}
+.tool-card.featured h3{color:#f8fafc}
+.tool-card.featured .tool-card-tagline{color:#22d3ee}
+.tool-card.featured .tool-card-desc{color:#cbd5e1}
+.tool-card.featured .tool-card-features span{background:rgba(15,23,42,.65);border:1px solid rgba(226,232,240,.35);color:#e2e8f0}
+.tool-card.featured .tool-btn-outline{background:rgba(15,23,42,.45);border:1px solid rgba(226,232,240,.6);color:#f8fafc}
+.tool-card.featured .tool-btn-outline:hover{border-color:#22d3ee;color:#22d3ee;background:rgba(34,211,238,.1)}
+.tool-card.featured .tool-btn-buy{background:linear-gradient(135deg,#22d3ee 0%,#6366f1 50%,#a855f7 100%);border:none;color:#020617;font-weight:700;box-shadow:0 4px 20px rgba(34,211,238,.25)}
+.tool-card.featured .tool-btn-buy:hover{box-shadow:0 6px 30px rgba(34,211,238,.4);transform:translateY(-1px);color:#020617}
 .tool-card-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#00f5ff;border:1px solid #00f5ff33;border-radius:100px;padding:3px 12px;margin-bottom:16px}
 .tool-card-icon{font-size:32px;margin-bottom:12px}
 .tool-card h3{font-size:22px;font-weight:800;color:#111;margin-bottom:4px;letter-spacing:-.5px}
@@ -241,9 +252,9 @@ footer .footer-name{color:#555;font-weight:600}
 .tool-btn-buy:hover{box-shadow:0 6px 30px rgba(0,245,255,.35);transform:translateY(-1px);color:#020408}
 .tool-card-soon{border-style:dashed;border-color:#ddd;opacity:.6;display:flex;flex-direction:column;align-items:center;text-align:center}
 .tool-card-soon:hover{opacity:.8;border-color:#ffd70022}
-.tool-card-video{padding:0;overflow:hidden;border:1px solid #ddd;background:#000;position:relative}
+.tool-card-video{padding:0;overflow:hidden;border:1px solid rgba(34,211,238,.15);background:#000;position:relative}
 .tool-card-video video{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px}
-.tool-card-video:hover{border-color:#00f5ff44}
+.tool-card-video:hover{border-color:rgba(34,211,238,.4)}
 .video-mute-btn{position:absolute;bottom:12px;right:12px;width:36px;height:36px;border-radius:50%;background:#00000088;border:1px solid #ffffff33;color:#111;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:2;backdrop-filter:blur(4px)}
 .video-mute-btn:hover{background:#000000cc;border-color:#00f5ff;transform:scale(1.1)}
 
